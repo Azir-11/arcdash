@@ -1,0 +1,32 @@
+{
+  "name": "arcdash",
+  "version": "0.0.1",
+  "description": "Business Function Library - Modern, Simple, Typed, and Powerful",
+  "scripts": {
+    "test": "vitest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "arcdash"
+  },
+  "keywords": [
+    "arcdash"
+  ],
+  "author": "Azir-11",
+  "license": "MIT",
+  "devDependencies": {
+    "@rollup/plugin-typescript": "^10.0.1",
+    "esbuild": "^0.16.3",
+    "prettier": "^2.7.1",
+    "prettier-plugin-organize-imports": "^3.0.3",
+    "rollup": "^3.2.5",
+    "rollup-plugin-dts": "^5.0.0",
+    "rollup-plugin-esbuild": "^5.0.0",
+    "rollup-plugin-node-externals": "^5.0.2",
+    "typescript": "^4.8.4",
+    "vitest": "^1.4.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

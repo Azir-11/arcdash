@@ -2,17 +2,29 @@
   "name": "arcdash",
   "version": "0.0.1",
   "description": "Business Function Library - Modern, Simple, Typed, and Powerful",
+  "main": "dist/cjs/index.cjs",
+  "module": "dist/esm/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    "types": "./dist/index.d.ts",
+    "import": "./dist/esm/index.mjs",
+    "require": "./dist/cjs/index.cjs"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "test": "vitest"
+    "test": "vitest",
+    "build": "pnpm tsc --noEmit && pnpm rollup -c"
   },
   "repository": {
-    "type": "git",
-    "url": "arcdash"
+    "url": "https://github.com/Azir-11/arcdash"
   },
   "keywords": [
     "arcdash"
   ],
-  "author": "Azir-11",
+  "author": "azir-11",
+  "private": false,
   "license": "MIT",
   "devDependencies": {
     "@rollup/plugin-typescript": "^10.0.1",

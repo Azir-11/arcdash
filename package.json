@@ -15,7 +15,10 @@
   ],
   "scripts": {
     "test": "vitest",
-    "build": "pnpm tsc --noEmit && pnpm rollup -c"
+    "build": "pnpm tsc --noEmit && pnpm rollup -c",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
   },
   "repository": {
     "url": "https://github.com/Azir-11/arcdash"
@@ -36,6 +39,7 @@
     "rollup-plugin-esbuild": "^5.0.0",
     "rollup-plugin-node-externals": "^5.0.2",
     "typescript": "^4.8.4",
+    "vitepress": "^1.1.0",
     "vitest": "^1.4.0"
   },
   "engines": {

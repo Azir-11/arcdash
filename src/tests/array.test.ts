@@ -13,11 +13,11 @@ describe('array module', () => {
     })
 
     test('空数组', () => {
-      expect(_.joinValues(['only'])).toBe('only')
+      expect(_.joinValues([])).toBe('')
     })
 
     test('空数组带连接符', () => {
-      expect(_.joinValues(['only'],'-')).toBe('only')
+      expect(_.joinValues([],'-')).toBe('')
     })
 
     test('含有 null 和 undefined 元素', () => {

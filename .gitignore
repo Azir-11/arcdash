@@ -4,5 +4,5 @@
 out
 gen
 
-/cdn
-/dist
+/cdn/*
+/dist/*

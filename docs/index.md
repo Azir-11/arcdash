@@ -11,8 +11,8 @@ hero:
       text: 开始
       link: /guide/intro
     - theme: alt
-      text: 介绍
-      link: /api-examples
+      text: Api列表
+      link: /api/array/joinValues
     - theme: alt
       text: 在GitHub上查看
       link: https://github.com/Azir-11/arcdash

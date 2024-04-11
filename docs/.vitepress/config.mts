@@ -9,7 +9,7 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '指引', link: '/guide/intro' },
-      { text: 'Api', link: '/api/index' }
+      { text: 'Api', link: '/api/array/joinValues' }
     ],
 
     sidebar: {

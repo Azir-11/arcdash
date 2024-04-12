@@ -1,13 +1,22 @@
-export function isEmptyValue<T = string | number>(value: T): boolean {
-  // 对于null和undefined，直接使用严格相等性检查
-  if (value === null || value === undefined) return true
+/**
+ * 判断 value 是否为空值
+ * 空值的情况包括：
+ * null, undefined, 0, '0', '' 以及 NaN
+ * @param value - 要判断的值
+ * @param checkValues - 要检查的值组成的字符串，以逗号分隔
+ * @returns 是否为空值
+ */
+export function isEmptyValue(
+  value: string | number | null | undefined,
+  checkValues?: string
+): boolean {
+  if (value == null || value == void 0 || value === '' || value === 0 || Number.isNaN(value))
+    return true
 
-  // 对于数字，检查是否为0
-  if (typeof value === 'number' && value === 0) return true
+  if (!checkValues) {
+    return false
+  }
 
-  // 对于字符串，检查是否为'0'或空字符串
-  if (typeof value === 'string' && (value === '0' || value === '')) return true
-
-  // 如果都不是，则认为值不为空 判断
-  return false
+  const valuesArray: string[] = checkValues.split(',').map((v) => v.trim());
+  return valuesArray.includes(String(value));
 }

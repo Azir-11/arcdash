@@ -3,13 +3,12 @@ import * as _ from '..'
 
 describe('array module', () => {
   describe('joinValues', () => {
-
     test('单个元素', () => {
       expect(_.joinValues(['only'])).toBe('only')
     })
 
     test('单个元素带连接符', () => {
-      expect(_.joinValues(['only'],'-')).toBe('only')
+      expect(_.joinValues(['only'], '-')).toBe('only')
     })
 
     test('空数组', () => {
@@ -17,7 +16,7 @@ describe('array module', () => {
     })
 
     test('空数组带连接符', () => {
-      expect(_.joinValues([],'-')).toBe('')
+      expect(_.joinValues([], '-')).toBe('')
     })
 
     test('含有 null 和 undefined 元素', () => {
@@ -44,6 +43,9 @@ describe('array module', () => {
       expect(_.joinValues(['a', 1, 'b', 2, 'c'], '-')).toBe('a-1-b-2-c')
     })
 
+    test('单元素 + 连接符', () => {
+      expect(_.joinValues(['a'], '-')).toBe('a')
+    })
   })
 
   describe('sum function', () => {

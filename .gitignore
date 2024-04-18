@@ -3,6 +3,7 @@
 *.iml
 out
 gen
+pnpm-lock.yaml
 
 /cdn/*
 /dist/*

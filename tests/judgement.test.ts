@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest'
-import * as _ from '..'
+import * as _ from '../src'
 
 describe('judgement module', () => {
   describe('isEmptyValue', () => {
@@ -24,11 +24,11 @@ describe('judgement module', () => {
     })
 
     test('直接的NaN', () => {
-      expect(_.isEmptyValue(NaN)).toBe(true)
+      expect(_.isEmptyValue(Number.NaN)).toBe(true)
     })
 
     test('转化出的NaN', () => {
-      expect(_.isEmptyValue(Number("abc"))).toBe(true)
+      expect(_.isEmptyValue(Number('abc'))).toBe(true)
     })
 
     test('包含实际内容的字符串', () => {

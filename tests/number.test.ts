@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest'
-import * as _ from '..'
+import * as _ from '../src'
 
 describe('number module', () => {
   describe('convertToBase26', () => {

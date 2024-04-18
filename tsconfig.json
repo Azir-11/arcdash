@@ -2,7 +2,7 @@
   "compilerOptions": {
     "outDir": "dist",
     "moduleResolution": "node",
-    "target": "es6",
+    "target": "ESNext",
     "lib": ["ESNext"],
     "esModuleInterop": true,
     "strict": true,

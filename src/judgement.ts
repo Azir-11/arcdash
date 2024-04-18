@@ -10,13 +10,19 @@ export function isEmptyValue(
   value: string | number | null | undefined,
   checkValues?: string
 ): boolean {
-  if (value == null || value == void 0 || value === '' || value === 0 || Number.isNaN(value))
+  if (
+    value == null ||
+    value == void 0 ||
+    value == 0 ||
+    value === '' ||
+    Number.isNaN(value)
+  )
     return true
 
   if (!checkValues) {
     return false
   }
 
-  const valuesArray: string[] = checkValues.split(',').map((v) => v.trim());
-  return valuesArray.includes(String(value));
+  const valuesArray: string[] = checkValues.split(',').map(v => v.trim())
+  return valuesArray.includes(String(value))
 }

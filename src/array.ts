@@ -4,11 +4,11 @@
  * @param separator - 分隔符
  */
 export function joinValues<T = string | number>(values: readonly T[], separator: string = ''): string {
-  if (values.length === 0) {
+  if (values.length === 0)
     return ''
-  }
+
   // 使用 filter 过滤掉 undefined 和 null 的值
-  const filteredValues = values.filter((value) => value !== null && value !== undefined)
+  const filteredValues = values.filter(value => value !== null && value !== undefined)
 
   // 使用 join 方法将数组连接为字符串
   return filteredValues.join(separator)

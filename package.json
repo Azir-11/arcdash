@@ -31,18 +31,18 @@
   "private": false,
   "license": "MIT",
   "devDependencies": {
+    "@antfu/eslint-config": "^2.15.0",
     "@rollup/plugin-typescript": "^10.0.1",
     "esbuild": "^0.16.3",
+    "eslint": "^9.1.0",
+    "eslint-plugin-antfu": "^2.1.2",
     "rollup": "^3.2.5",
     "rollup-plugin-dts": "^5.0.0",
     "rollup-plugin-esbuild": "^5.0.0",
     "rollup-plugin-node-externals": "^5.0.2",
     "typescript": "^5.4.5",
     "vitepress": "^1.1.0",
-    "vitest": "^1.4.0",
-    "@antfu/eslint-config": "^2.15.0",
-    "eslint": "^9.1.0",
-    "eslint-plugin-antfu": "^2.1.2"
+    "vitest": "^1.4.0"
   },
   "engines": {
     "node": ">=18.0.0"

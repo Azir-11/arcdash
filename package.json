@@ -1,6 +1,6 @@
 {
   "name": "arcdash",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "type": "module",
   "description": "Business Function Library - Modern, Simple, Typed, and Powerful",
   "main": "dist/cjs/index.cjs",

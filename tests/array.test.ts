@@ -66,4 +66,166 @@ describe('array module', () => {
       expect(result).toBe(0)
     })
   })
+
+  describe('mergeArraysByKeyValue function', () => {
+    it('单层数组', () => {
+      const localColumn = [
+        {
+          sortable: true,
+          field: 'order_no',
+          title: '染整通知单号',
+          fixed: 'left',
+          minWidth: 100,
+          order: 1,
+          slots: {},
+        },
+        {
+          sortable: true,
+          field: 'order_name',
+          title: '单据类型',
+          fixed: 'left',
+          minWidth: 180,
+          order: 2,
+          slots: {},
+        },
+      ]
+
+      const remoteColumn = [
+        {
+          sortable: true,
+          field: 'order_no',
+          title: '染整通知单号',
+          fixed: 'right',
+          minWidth: 200,
+          order: 2,
+          slots: {},
+        },
+        {
+          sortable: true,
+          field: 'order_type_name',
+          title: '单据类型',
+          fixed: 'left',
+          minWidth: 180,
+          order: 1,
+          slots: {},
+        },
+      ]
+
+      const result = _.mergeArraysByKeyValue(localColumn, remoteColumn, 'field')
+
+      const shouldBe = [
+        {
+          sortable: true,
+          field: 'order_no',
+          title: '染整通知单号',
+          fixed: 'right',
+          minWidth: 200,
+          order: 2,
+          slots: {},
+        },
+        {
+          sortable: true,
+          field: 'order_name',
+          title: '单据类型',
+          fixed: 'left',
+          minWidth: 180,
+          order: 2,
+          slots: {},
+        },
+      ]
+
+      expect(result).toStrictEqual(shouldBe)
+    })
+
+    it('多层数组', () => {
+      const localColumn = [
+        {
+          sortable: true,
+          field: 'order_no',
+          title: '染整通知单号',
+          fixed: 'left',
+          minWidth: 100,
+          order: 1,
+          childrenList: [
+            {
+              sortable: true,
+              field: 'order_name',
+              title: '单据类型',
+              fixed: 'left',
+              minWidth: 180,
+              order: 2,
+              slots: {},
+            }
+          ],
+          slots: {},
+        },
+        {
+          sortable: true,
+          field: 'order_name',
+          title: '单据类型',
+          fixed: 'left',
+          minWidth: 180,
+          order: 2,
+          slots: {},
+        },
+      ]
+
+      const remoteColumn = [
+        {
+          sortable: true,
+          field: 'order_no',
+          title: '染整通知单号',
+          fixed: 'right',
+          minWidth: 200,
+          order: 2,
+          slots: {},
+        },
+        {
+          sortable: true,
+          field: 'order_type_name',
+          title: '单据类型',
+          fixed: 'left',
+          minWidth: 180,
+          order: 1,
+          slots: {},
+        },
+      ]
+
+      const result = _.mergeArraysByKeyValue(localColumn, remoteColumn, 'field')
+
+      const shoutBe = [
+        {
+          sortable: true,
+          field: 'order_no',
+          title: '染整通知单号',
+          fixed: 'right',
+          minWidth: 200,
+          order: 2,
+          childrenList: [
+            {
+              sortable: true,
+              field: 'order_name',
+              title: '单据类型',
+              fixed: 'left',
+              minWidth: 180,
+              order: 2,
+              slots: {},
+            }
+          ],
+          slots: {},
+        },
+        {
+          sortable: true,
+          field: 'order_name',
+          title: '单据类型',
+          fixed: 'left',
+          minWidth: 180,
+          order: 2,
+          slots: {},
+        },
+      ]
+
+      expect(result).toStrictEqual(shoutBe)
+    })
+  })
 })

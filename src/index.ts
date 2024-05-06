@@ -1,4 +1,4 @@
-export { joinValues, sum } from './array'
+export { joinValues, sum, mergeArraysByKeyValue } from './array'
 export { convertToBase26 } from './number'
 export {
   isArray,

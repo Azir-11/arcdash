@@ -29,6 +29,10 @@ export function mergeArraysByKeyValue<T extends { [key: string]: any }>(
   key: string,
   childrenKey?: keyof T,
 ): T[] {
+  // 如果第一个数组为空，则直接返回空数组
+  if (!localArray || localArray.length === 0)
+    return []
+
   // 创建一个映射，用于存储remoteArray中项目的key值
   const remoteMap = new Map<string, T>()
   remoteArray.forEach((item) => {
@@ -43,6 +47,7 @@ export function mergeArraysByKeyValue<T extends { [key: string]: any }>(
     if (remoteItem) {
       // 合并本地和远程对象
       Object.assign(localItem, remoteItem)
+
       // 如果有children，递归合并children数组
       if (childrenKey && localItem[childrenKey] && remoteItem[childrenKey])
         Reflect.set(localItem, childrenKey, mergeArraysByKeyValue(localItem[childrenKey], remoteItem[childrenKey], key, childrenKey))

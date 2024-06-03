@@ -1,11 +1,25 @@
-export function isSymbol(value: any): value is symbol {
-  return !!value && value.constructor === Symbol
+import { isNumber } from './number'
+import { isDate, isFunction, isSymbol } from './object'
+
+/**
+ * Checks if given value is not empty (!== '', !== null, !== undefined).
+ */
+export function isNotEmpty(value: unknown): boolean {
+  return value !== '' && value !== null && value !== undefined
 }
 
-export const isArray = Array.isArray
+/**
+ * Checks if value does not match ("!==") the comparison.
+ */
+export function notEquals(value: unknown, comparison: unknown): boolean {
+  return value !== comparison
+}
 
-export function isObject(value: any): value is object {
-  return !!value && value.constructor === Object
+/**
+ * Checks if value is defined (!== undefined, !== null).
+ */
+export function isDefined<T>(value: T | undefined | null): value is T {
+  return value !== undefined && value !== null
 }
 
 /**
@@ -22,48 +36,6 @@ export function isPrimitive(value: any): boolean {
     || value === null
     || (typeof value !== 'object' && typeof value !== 'function')
   )
-}
-
-export function isFunction(value: any): value is Function {
-  return !!(value && value.constructor && value.call && value.apply)
-}
-
-export function isString(value: any): value is string {
-  return typeof value === 'string' || value instanceof String
-}
-
-export function isInt(value: any): value is number {
-  return isNumber(value) && value % 1 === 0
-}
-
-export function isFloat(value: any): value is number {
-  return isNumber(value) && value % 1 !== 0
-}
-
-export function isNumber(value: any): value is number {
-  try {
-    return Number(value) === value
-  }
-  catch {
-    return false
-  }
-}
-
-export function isDate(value: any): value is Date {
-  return Object.prototype.toString.call(value) === '[object Date]'
-}
-
-/**
- * This is really a _best guess_ promise checking. You
- * should probably use Promise.resolve(value) to be 100%
- * sure you're handling it correctly.
- */
-export function isPromise(value: any): value is Promise<any> {
-  if (!value)
-    return false
-  if (!value.then)
-    return false
-  return isFunction(value.then)
 }
 
 export function isEmpty(value: any) {

@@ -1,17 +1,7 @@
 export { joinValues, sum, mergeArraysByKeyValue } from './array'
 export { convertToBase26 } from './number'
-export {
-  isArray,
-  isDate,
-  isEmpty,
-  isEqual,
-  isFloat,
-  isFunction,
-  isInt,
-  isNumber,
-  isObject,
-  isPrimitive,
-  isPromise,
-  isString,
-  isSymbol,
-} from './typed'
+export { isNotEmpty, notEquals, isDefined, isPrimitive, isEmpty, isEqual } from './check/common'
+export { isArray, arrayNotEmpty, arrayNotContains, arrayContains, arrayUnique } from './check/array'
+export { isSymbol, isObject, isFunction, isDate, isPromise } from './check/object'
+export { isNumber, isInt, isFloat, isNegative, isPositive, max, min } from './check/number'
+export { isString } from './check/string'

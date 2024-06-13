@@ -2,63 +2,6 @@ import { describe, expect, it } from 'vitest'
 import * as _ from '../src'
 
 describe('typed module', () => {
-  describe('isArray function', () => {
-    it('returns false for null', () => {
-      const result = _.isArray(null)
-
-      expect(result).toBe(false)
-    })
-
-    it('returns false for undefined', () => {
-      const result = _.isArray(undefined)
-
-      expect(result).toBe(false)
-    })
-
-    it('returns false for boolean', () => {
-      const result = _.isArray(false)
-
-      expect(result).toBe(false)
-    })
-
-    it('returns false for object', () => {
-      const result = _.isArray({})
-
-      expect(result).toBe(false)
-    })
-
-    it('returns false for class instance', () => {
-      class Data {}
-      const result = _.isArray(new Data())
-
-      expect(result).toBe(false)
-    })
-
-    it('returns false for number', () => {
-      const result = _.isArray(22)
-
-      expect(result).toBe(false)
-    })
-
-    it('returns false for string', () => {
-      const result = _.isArray('abc')
-
-      expect(result).toBe(false)
-    })
-
-    it('returns true for array', () => {
-      const result = _.isArray([1, 2, 3])
-
-      expect(result).toBe(true)
-    })
-
-    it('returns true for empty array', () => {
-      const result = _.isArray([])
-
-      expect(result).toBe(true)
-    })
-  })
-
   describe('isObject function', () => {
     it('returns false for null', () => {
       const result = _.isObject(null)

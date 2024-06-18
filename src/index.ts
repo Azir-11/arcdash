@@ -9,6 +9,7 @@ export {
   isPrimitive,
   isEmpty,
   isEqual,
+  isNil,
 } from './check/common'
 export {
   isArray,

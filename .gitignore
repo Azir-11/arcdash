@@ -12,3 +12,5 @@ pnpm-lock.yaml
 docs/.vitepress/dist
 docs/.vitepress/cache
 node_modules
+
+.DS_Store

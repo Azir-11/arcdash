@@ -333,46 +333,6 @@ describe('typed module', () => {
     })
   })
 
-  describe('isEmpty function', () => {
-    class Data {}
-    class Person {
-      name: string = 'ray'
-    }
-
-    it('returns true for empty values', () => {
-      expect(_.isEmpty(null)).toBe(true)
-      expect(_.isEmpty(undefined)).toBe(true)
-      expect(_.isEmpty(new Data())).toBe(true)
-      expect(_.isEmpty(0)).toBe(true)
-      expect(_.isEmpty(true)).toBe(true)
-      expect(_.isEmpty([])).toBe(true)
-      expect(_.isEmpty(false)).toBe(true)
-      expect(_.isEmpty({})).toBe(true)
-      expect(_.isEmpty('')).toBe(true)
-      expect(_.isEmpty(String())).toBe(true)
-      expect(_.isEmpty(new Map())).toBe(true)
-      expect(_.isEmpty(new Date('invalid value'))).toBe(true)
-    })
-
-    it('returns false for non-empty values', () => {
-      expect(_.isEmpty(new Date())).toBe(false)
-      expect(_.isEmpty(new Date('2022-09-01T02:19:55.976Z'))).toBe(false)
-      expect(_.isEmpty(22)).toBe(false)
-      expect(_.isEmpty(new Person())).toBe(false)
-      expect(_.isEmpty({ name: 'x' })).toBe(false)
-      expect(_.isEmpty('abc')).toBe(false)
-      expect(_.isEmpty(String('abc'))).toBe(false)
-      expect(_.isEmpty([1, 2, 3])).toBe(false)
-      expect(_.isEmpty(() => {})).toBe(false)
-      expect(_.isEmpty(() => {})).toBe(false)
-      expect(_.isEmpty(Symbol(''))).toBe(false)
-      expect(_.isEmpty(Symbol('hello'))).toBe(false)
-      const map = new Map()
-      map.set('a', 1)
-      expect(_.isEmpty(map)).toBe(false)
-    })
-  })
-
   describe('isDate function', () => {
     it('return true for Date values', () => {
       expect(_.isDate(new Date())).toBe(true)

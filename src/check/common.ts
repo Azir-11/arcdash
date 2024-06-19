@@ -9,13 +9,6 @@ export function isNotEmpty(value: unknown): boolean {
 }
 
 /**
- * Checks if value does not match ("!==") the comparison.
- */
-export function notEquals(value: unknown, comparison: unknown): boolean {
-  return value !== comparison
-}
-
-/**
  * Checks if value is defined (!== undefined, !== null).
  */
 export function isDefined<T>(value: T | undefined | null): value is T {
@@ -75,9 +68,8 @@ export function isEqual<TType>(x: TType, y: TType): boolean {
     || x === null
     || typeof y !== 'object'
     || y === null
-  ) {
+  )
     return false
-  }
 
   const keysX = Reflect.ownKeys(x as unknown as object) as (keyof typeof x)[]
   const keysY = Reflect.ownKeys(y as unknown as object)
@@ -90,6 +82,16 @@ export function isEqual<TType>(x: TType, y: TType): boolean {
       return false
   }
   return true
+}
+
+/**
+ * 判断两个值是否不相等
+ */
+export function notEquals(value: unknown, comparison: unknown): boolean {
+  if (typeof value === 'object' && value !== null && typeof comparison === 'object' && comparison !== null)
+    return !isEqual(value, comparison)
+
+  return value !== comparison
 }
 
 export function isNil(value: unknown) {

@@ -75,8 +75,9 @@ export function isEqual<TType>(x: TType, y: TType): boolean {
     || x === null
     || typeof y !== 'object'
     || y === null
-  )
+  ) {
     return false
+  }
 
   const keysX = Reflect.ownKeys(x as unknown as object) as (keyof typeof x)[]
   const keysY = Reflect.ownKeys(y as unknown as object)
@@ -89,4 +90,8 @@ export function isEqual<TType>(x: TType, y: TType): boolean {
       return false
   }
   return true
+}
+
+export function isNil(value: unknown) {
+  return value == null
 }

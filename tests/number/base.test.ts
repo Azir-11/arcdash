@@ -16,7 +16,7 @@ describe('number module', () => {
     })
 
     it('非数字', () => {
-      expect(_.convertToBase26('cnm')).toBe('')
+      expect(_.convertToBase26('azir')).toBe('0')
     })
   })
 })

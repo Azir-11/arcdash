@@ -41,12 +41,11 @@ pnpm add radash
 ## Usage
 
 ```ts
-import { joinValues, sum } from 'arcash';
+import { joinValues, sum } from 'arcash'
 
-joinValues([],'-') // => ''
+joinValues([], '-') // => ''
 joinValues(['a', null, 'b', undefined, 'c'], '-') // => a-b-c
 
 const list = [{ value: 5 }, { value: 5 }, { value: 10 }, { value: 2 }]
 const result = sum(list, x => x.value) // => 22
-
 ```

@@ -17,9 +17,9 @@ export default [
     input: 'src/index.ts',
     output: {
       file: 'dist/index.d.ts',
-      format: 'es'
+      format: 'es',
     },
-    plugins: [externals(), dts()]
+    plugins: [externals(), dts()],
   },
   {
     // CJS build
@@ -28,12 +28,12 @@ export default [
       dir: 'dist/cjs',
       format: 'cjs',
       generatedCode: {
-        constBindings: usePreferConst
+        constBindings: usePreferConst,
       },
       preserveModules: usePreserveModules,
       strict: useStrict,
       entryFileNames: '[name].cjs',
-      sourcemap: useSourceMap
+      sourcemap: useSourceMap,
     },
     plugins: [
       externals(),
@@ -42,9 +42,9 @@ export default [
         : typescript({
           noEmitOnError: useThrowOnError,
           outDir: 'dist/cjs',
-          removeComments: true
-        })
-    ]
+          removeComments: true,
+        }),
+    ],
   },
   {
     // ESM builds
@@ -53,12 +53,12 @@ export default [
       dir: 'dist/esm',
       format: 'es',
       generatedCode: {
-        constBindings: usePreferConst
+        constBindings: usePreferConst,
       },
       preserveModules: usePreserveModules,
       strict: useStrict,
       entryFileNames: '[name].mjs',
-      sourcemap: useSourceMap
+      sourcemap: useSourceMap,
     },
     plugins: [
       externals(),
@@ -67,9 +67,9 @@ export default [
         : typescript({
           noEmitOnError: useThrowOnError,
           outDir: 'dist/esm',
-          removeComments: true
-        })
-    ]
+          removeComments: true,
+        }),
+    ],
   },
   {
     // CDN build
@@ -78,36 +78,36 @@ export default [
       {
         format: 'iife',
         generatedCode: {
-          constBindings: usePreferConst
+          constBindings: usePreferConst,
         },
         preserveModules: false,
         strict: useStrict,
         file: 'cdn/arcdash.js',
         name: 'arcdash',
-        sourcemap: false
+        sourcemap: false,
       },
       {
         format: 'iife',
         generatedCode: {
-          constBindings: usePreferConst
+          constBindings: usePreferConst,
         },
         preserveModules: false,
         strict: useStrict,
         file: 'cdn/arcdash.min.js',
         name: 'arcdash',
         sourcemap: false,
-        plugins: [minify()]
+        plugins: [minify()],
       },
       {
         format: 'es',
         generatedCode: {
-          constBindings: usePreferConst
+          constBindings: usePreferConst,
         },
         preserveModules: false,
         strict: useStrict,
         file: 'cdn/arcdash.esm.js',
-        sourcemap: false
-      }
+        sourcemap: false,
+      },
     ],
     plugins: [
       externals(),
@@ -116,8 +116,8 @@ export default [
         : typescript({
           noEmitOnError: useThrowOnError,
           outDir: 'cdn',
-          removeComments: true
-        })
-    ]
-  }
+          removeComments: true,
+        }),
+    ],
+  },
 ]

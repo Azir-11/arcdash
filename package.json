@@ -1,50 +1,60 @@
 {
   "name": "arcdash",
-  "version": "0.0.51",
   "type": "module",
+  "version": "0.0.51",
+  "private": false,
   "description": "Business Function Library - Modern, Simple, Typed, and Powerful",
-  "main": "dist/cjs/index.cjs",
-  "module": "dist/esm/index.mjs",
-  "types": "dist/index.d.ts",
-  "exports": {
-    "types": "./dist/index.d.ts",
-    "import": "./dist/esm/index.mjs",
-    "require": "./dist/cjs/index.cjs"
-  },
-  "files": [
-    "dist"
-  ],
-  "scripts": {
-    "test": "vitest",
-    "build": "pnpm tsc --noEmit && pnpm rollup -c",
-    "docs:dev": "vitepress dev docs",
-    "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
-  },
+  "author": "azir-11",
+  "license": "MIT",
   "repository": {
     "url": "https://github.com/Azir-11/arcdash"
   },
   "keywords": [
     "arcdash"
   ],
-  "author": "azir-11",
-  "private": false,
-  "license": "MIT",
-  "devDependencies": {
-    "@antfu/eslint-config": "^2.15.0",
-    "@rollup/plugin-typescript": "^10.0.1",
-    "esbuild": "^0.16.3",
-    "eslint": "^9.1.0",
-    "eslint-plugin-antfu": "^2.1.2",
-    "rollup": "^3.2.5",
-    "rollup-plugin-dts": "^5.0.0",
-    "rollup-plugin-esbuild": "^5.0.0",
-    "rollup-plugin-node-externals": "^5.0.2",
-    "typescript": "^5.4.5",
-    "vitepress": "^1.1.0",
-    "vitest": "^1.4.0"
+  "exports": {
+    "types": "./dist/index.d.ts",
+    "import": "./dist/esm/index.mjs",
+    "require": "./dist/cjs/index.cjs"
   },
+  "main": "dist/cjs/index.cjs",
+  "module": "dist/esm/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "engines": {
     "node": ">=18.0.0"
+  },
+  "scripts": {
+    "test": "vitest",
+    "build": "pnpm tsc --noEmit && pnpm rollup -c",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs",
+    "typecheck": "vue-tsc --noEmit --skipLibCheck",
+    "cleanup": "soy cleanup",
+    "commit": "soy git-commit",
+    "lint": "eslint . --fix",
+    "release": "soy release",
+    "update-pkg": "soy update-pkg"
+  },
+  "dependencies": {
+    "npm-check-updates": "^16.14.20"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.21.1",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "@soybeanjs/cli": "^1.0.19",
+    "esbuild": "^0.21.5",
+    "eslint": "^9.5.0",
+    "eslint-plugin-antfu": "^2.3.3",
+    "rollup": "^4.18.0",
+    "rollup-plugin-dts": "^6.1.1",
+    "rollup-plugin-esbuild": "^6.1.1",
+    "rollup-plugin-node-externals": "^7.1.2",
+    "typescript": "^5.4.5",
+    "vitepress": "^1.2.3",
+    "vitest": "^1.6.0"
   }
 }

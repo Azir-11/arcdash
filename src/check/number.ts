@@ -1,3 +1,6 @@
+/**
+ * 检查值是否为数字
+ */
 export function isNumber(value: unknown): value is number {
   try {
     return Number(value) === value
@@ -7,36 +10,43 @@ export function isNumber(value: unknown): value is number {
   }
 }
 
+/**
+ * 检查值是否为整数
+ */
 export function isInt(value: any): value is number {
   return isNumber(value) && value % 1 === 0
 }
 
+/**
+ * 检查值是否为浮点数
+ */
 export function isFloat(value: any): value is number {
   return isNumber(value) && value % 1 !== 0
 }
+
 /**
- * Checks if the value is a negative number smaller than zero.
+ * 检查值是否为小于零的负数
  */
 export function isNegative(value: unknown): boolean {
   return isNumber(value) && value < 0
 }
 
 /**
- * Checks if the value is a positive number greater than zero.
+ * 检查值是否为大于零的正数
  */
 export function isPositive(value: unknown): boolean {
   return isNumber(value) && value > 0
 }
 
 /**
- * Checks if the first number is less than or equal to the second.
+ * 检查第一个数字是否小于或等于第二个数字
  */
 export function max(num: unknown, max: number): boolean {
   return isNumber(num) && isNumber(max) && num <= max
 }
 
 /**
- * Checks if the first number is greater than or equal to the second.
+ * 检查第一个数字是否大于或等于第二个数字
  */
 export function min(num: unknown, min: number): boolean {
   return isNumber(num) && isNumber(min) && num >= min

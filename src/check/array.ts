@@ -33,7 +33,10 @@ type ArrayUniqueIdentifier<T = any> = (o: T) => any
  * Checks if all array's values are unique. Comparison for objects is reference-based.
  * If null or undefined is given then this function returns false.
  */
-export function arrayUnique(array: unknown[], identifier?: ArrayUniqueIdentifier): boolean {
+export function arrayUnique(
+  array: unknown[],
+  identifier?: ArrayUniqueIdentifier,
+): boolean {
   if (!Array.isArray(array))
     return false
 

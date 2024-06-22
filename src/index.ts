@@ -18,6 +18,7 @@ export {
   arrayContains,
   arrayUnique,
   head,
+  last,
 } from './check/array'
 export {
   isSymbol,

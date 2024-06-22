@@ -9,10 +9,10 @@ export default defineConfig({
   themeConfig: {
     editLink: {
       pattern: 'https://github.com/Azir-11/arcdash/tree/main/docs/:path',
-      text: '编辑当前页面'
+      text: '编辑当前页面',
     },
     search: {
-      provider: 'local'
+      provider: 'local',
     },
     nav: [
       { text: '指引', link: '/guide/intro' },
@@ -45,15 +45,15 @@ export default defineConfig({
             {
               text: '字节转换',
               collapsed: false,
-                items: [
-                  { text: '自动转换大小', link: '/api/number/byte/autoConvertBytes' },
-                  { text: '从某单位转换至目标单位', link: '/api/number/byte/convertBytes' },
-                  { text: '转换至目标单位', link: '/api/number/byte/convertBytesTo' },
-                ],
+              items: [
+                { text: '自动转换大小', link: '/api/number/byte/autoConvertBytes' },
+                { text: '从某单位转换至目标单位', link: '/api/number/byte/convertBytes' },
+                { text: '转换至目标单位', link: '/api/number/byte/convertBytesTo' },
+              ],
             },
           ],
         },
-      ]
+      ],
     },
     socialLinks: [
       { icon: 'github', link: 'https://github.com/Azir-11/arcdash' },

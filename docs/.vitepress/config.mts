@@ -34,8 +34,8 @@ export default defineConfig({
           text: 'Array',
           collapsed: true,
           items: [
-            { text: '拼接字符串', link: '/api/array/joinValues' },
-            { text: '求和', link: '/api/array/sum' },
+            { text: 'joinValues', link: '/api/array/joinValues' },
+            { text: 'sum', link: '/api/array/sum' },
           ],
         },
         {
@@ -46,9 +46,9 @@ export default defineConfig({
               text: '字节转换',
               collapsed: false,
               items: [
-                { text: '自动转换大小', link: '/api/number/byte/autoConvertBytes' },
-                { text: '从某单位转换至目标单位', link: '/api/number/byte/convertBytes' },
-                { text: '转换至目标单位', link: '/api/number/byte/convertBytesTo' },
+                { text: 'autoConvertBytes', link: '/api/number/byte/autoConvertBytes' },
+                { text: 'convertBytes', link: '/api/number/byte/convertBytes' },
+                { text: 'convertBytesTo', link: '/api/number/byte/convertBytesTo' },
               ],
             },
           ],

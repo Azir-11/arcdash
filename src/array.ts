@@ -3,12 +3,17 @@
  * @param values - 要连接的值
  * @param separator - 分隔符
  */
-export function joinValues<T = string | number>(values: readonly T[], separator: string = ''): string {
+export function joinValues<T = string | number>(
+  values: readonly T[],
+  separator: string = '',
+): string {
   if (values.length === 0)
     return ''
 
   // 使用 filter 过滤掉 undefined 和 null 的值
-  const filteredValues = values.filter(value => value !== null && value !== undefined)
+  const filteredValues = values.filter(
+    value => value !== null && value !== undefined,
+  )
 
   // 使用 join 方法将数组连接为字符串
   return filteredValues.join(separator)
@@ -18,8 +23,14 @@ export function joinValues<T = string | number>(values: readonly T[], separator:
  * 求数组中所有数字的和。可选择提供一个函数将数组中的对象转换为数值
  */
 export function sum<T extends number>(array: readonly T[]): number
-export function sum<T extends object>(array: readonly T[], fn: (item: T) => number): number
-export function sum<T extends object | number>(array: readonly any[], fn?: (item: T) => number): number {
+export function sum<T extends object>(
+  array: readonly T[],
+  fn: (item: T) => number
+): number
+export function sum<T extends object | number>(
+  array: readonly any[],
+  fn?: (item: T) => number,
+): number {
   return (array || []).reduce((acc, item) => acc + (fn ? fn(item) : item), 0)
 }
 
@@ -49,8 +60,18 @@ export function mergeArraysByKeyValue<T extends { [key: string]: any }>(
       Object.assign(localItem, remoteItem)
 
       // 如果有children，递归合并children数组
-      if (childrenKey && localItem[childrenKey] && remoteItem[childrenKey])
-        Reflect.set(localItem, childrenKey, mergeArraysByKeyValue(localItem[childrenKey], remoteItem[childrenKey], key, childrenKey))
+      if (childrenKey && localItem[childrenKey] && remoteItem[childrenKey]) {
+        Reflect.set(
+          localItem,
+          childrenKey,
+          mergeArraysByKeyValue(
+            localItem[childrenKey],
+            remoteItem[childrenKey],
+            key,
+            childrenKey,
+          ),
+        )
+      }
 
       // 从映射中删除已处理的远程项目
       remoteMap.delete(localItem[key])
@@ -59,4 +80,24 @@ export function mergeArraysByKeyValue<T extends { [key: string]: any }>(
   })
 
   return result
+}
+
+/**
+ * 返回数组的第一个元素，如果数组为空则返回 undefined。
+ * @template T 数组中元素的类型。
+ * @param {T[]} array - 输入数组。
+ * @returns {T | undefined} 数组的第一个元素，如果数组为空则返回 undefined。
+ */
+export function head<T>(array: T[]): T | undefined {
+  return array.length > 0 ? array[0] : undefined
+}
+
+/**
+ * 返回数组的最后一个元素，如果数组为空则返回 undefined。
+ * @template T 数组中元素的类型。
+ * @param {T[]} array - 输入数组。
+ * @returns {T | undefined} 数组的最后一个元素，如果数组为空则返回 undefined。
+ */
+export function last<T>(array: T[]): T | undefined {
+  return array.length > 0 ? array[array.length - 1] : undefined
 }

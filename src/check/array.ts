@@ -46,15 +46,3 @@ export function arrayUnique(
   const uniqueItems = array.filter((a, b, c) => c.indexOf(a) === b)
   return array.length === uniqueItems.length
 }
-
-/**
- * 获取数组的第一个元素
- * @param array 数组
- */
-export const head = <T>(array: T[]) => array[0]
-
-/**
- * 获取数组的最后一个元素
- * @param array 数组
- */
-export const last = <T>(array: T[]) => array[array.length - 1]

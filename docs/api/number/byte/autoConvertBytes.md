@@ -5,7 +5,7 @@
 ## 使用
 
 ```typescript
-import { autoConvertBytes } from 'arcdash';
+import { autoConvertBytes } from 'arcdash'
 
 // 1024字节转换为KB
 autoConvertBytes(1024) // => "1.00 KB"
@@ -23,5 +23,5 @@ autoConvertBytes(0) // => "0 B"
 ## 类型声明
 
 ```typescript
-export declare function autoConvertBytes(size: number, precision?: number): string;
+export declare function autoConvertBytes(size: number, precision?: number): string
 ```

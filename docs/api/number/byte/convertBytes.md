@@ -5,7 +5,7 @@
 ## 使用
 
 ```typescript
-import { convertBytes } from 'arcdash';
+import { convertBytes } from 'arcdash'
 
 // 1024字节转换为KB
 convertBytes(1024, 'B', 'KB') // => "1.00 KB"
@@ -19,5 +19,5 @@ convertBytes(1048576, 'B', 'GB') // => "0.00 GB"
 ## 类型声明
 
 ```typescript
-export declare function convertBytes(size: number, fromUnit: Unit, toUnit: Unit, precision?: number): string;
+export declare function convertBytes(size: number, fromUnit: Unit, toUnit: Unit, precision?: number): string
 ```

@@ -16,7 +16,7 @@ joinValues(['a', null, 'b', undefined, 'c'], '-') // => a-b-c
 # 类型声明
 
 ```typescript
-declare function joinValues<T = string | number>(
+export declare function joinValues<T = string | number>(
   values: readonly T[],
   separator?: string
 ): string

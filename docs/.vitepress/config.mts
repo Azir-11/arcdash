@@ -9,32 +9,47 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '指引', link: '/guide/intro' },
-      { text: 'Api', link: '/api/array/joinValues' }
+      { text: 'Api', link: '/api/array/joinValues' },
     ],
-
     sidebar: {
-      '/guide': [
+      '/guide/': [
         {
           text: '开始',
+          collapsed: true,
           items: [
             { text: '简介', link: '/guide/intro' },
-            { text: '快速上手', link: '/guide/quick-start' }
-          ]
-        }
+            { text: '快速上手', link: '/guide/quick-start' },
+          ],
+        },
       ],
-      '/api': [
+      '/api/': [
         {
           text: 'Array',
+          collapsed: true,
           items: [
-            { text: 'joinValues', link: '/api/array/joinValues' },
-            { text: 'sum', link: '/api/array/sum' }
-          ]
-        }
+            { text: '拼接字符串', link: '/api/array/joinValues' },
+            { text: '求和', link: '/api/array/sum' },
+          ],
+        },
+        {
+          text: 'Number',
+          collapsed: false,
+          items: [
+            {
+              text: '字节转换',
+              collapsed: false,
+                items: [
+                  { text: '自动转换大小', link: '/api/number/byte/autoConvertBytes' },
+                  { text: '从某单位转换至目标单位', link: '/api/number/byte/convertBytes' },
+                  { text: '转换至目标单位', link: '/api/number/byte/convertBytesTo' },
+                ],
+            },
+          ],
+        },
       ]
     },
-
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/Azir-11/arcdash' }
-    ]
-  }
+      { icon: 'github', link: 'https://github.com/Azir-11/arcdash' },
+    ],
+  },
 })

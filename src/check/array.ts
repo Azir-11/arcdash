@@ -33,7 +33,10 @@ type ArrayUniqueIdentifier<T = any> = (o: T) => any
  * Checks if all array's values are unique. Comparison for objects is reference-based.
  * If null or undefined is given then this function returns false.
  */
-export function arrayUnique(array: unknown[], identifier?: ArrayUniqueIdentifier): boolean {
+export function arrayUnique(
+  array: unknown[],
+  identifier?: ArrayUniqueIdentifier,
+): boolean {
   if (!Array.isArray(array))
     return false
 
@@ -43,3 +46,9 @@ export function arrayUnique(array: unknown[], identifier?: ArrayUniqueIdentifier
   const uniqueItems = array.filter((a, b, c) => c.indexOf(a) === b)
   return array.length === uniqueItems.length
 }
+
+/**
+ * 获取数组的第一个元素
+ * @param array 数组
+ */
+export const head = <T>(array: T[]) => array[0]

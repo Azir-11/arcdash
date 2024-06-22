@@ -5,8 +5,15 @@ export default defineConfig({
   title: 'Arcdash',
   description:
     'Business Function Library - Modern, Simple, Typed, and Powerful',
+  lastUpdated: true,
   themeConfig: {
-    // https://vitepress.dev/reference/default-theme-config
+    editLink: {
+      pattern: 'https://github.com/Azir-11/arcdash/tree/main/docs/:path',
+      text: '编辑当前页面'
+    },
+    search: {
+      provider: 'local'
+    },
     nav: [
       { text: '指引', link: '/guide/intro' },
       { text: 'Api', link: '/api/array/joinValues' },

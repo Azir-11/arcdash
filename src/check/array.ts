@@ -1,16 +1,16 @@
 export const isArray = Array.isArray
 
 /**
- * Checks if given array is not empty.
- * If null or undefined is given then this function returns false.
+ * 检查给定的数组是否为空。
+ * 如果给定null或undefined，则此函数返回false。
  */
 export function arrayNotEmpty(array: unknown): boolean {
   return isArray(array) && array.length > 0
 }
 
 /**
- * Checks if array does not contain any of the given values.
- * If null or undefined is given then this function returns false.
+ * 检查数组是否不包含任何给定的值。
+ * 如果给定null或undefined，则此函数返回false。
  */
 export function arrayNotContains(array: unknown, values: any[]): boolean {
   if (!isArray(array))
@@ -19,8 +19,8 @@ export function arrayNotContains(array: unknown, values: any[]): boolean {
 }
 
 /**
- * Checks if array contains all values from the given array of values.
- * If null or undefined is given then this function returns false.
+ * 检查array是否包含给定值数组中的所有值。
+ * 如果给定null或undefined，则此函数返回false。
  */
 export function arrayContains(array: unknown, values: any[]): boolean {
   if (!isArray(array))
@@ -30,8 +30,9 @@ export function arrayContains(array: unknown, values: any[]): boolean {
 
 type ArrayUniqueIdentifier<T = any> = (o: T) => any
 /**
- * Checks if all array's values are unique. Comparison for objects is reference-based.
- * If null or undefined is given then this function returns false.
+ * 检查所有数组的值是否唯一。
+ * 对象的比较是基于引用的。
+ * 如果给定null或undefined，则此函数返回false。
  */
 export function arrayUnique(
   array: unknown[],

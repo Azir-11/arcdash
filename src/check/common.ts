@@ -2,26 +2,32 @@ import { isNumber } from './number'
 import { isDate, isFunction, isSymbol } from './object'
 
 /**
- * Checks if given value is not empty (!== '', !== null, !== undefined).
+ * 检查给定的值是否不为空 (!== '', !== null, !== undefined).
+ *
+ * @param {*} value 用于检查的值
+ * @return {boolean} 如果值不为空则返回 true, 否则返回 false
  */
 export function isNotEmpty(value: unknown): boolean {
   return value !== '' && value !== null && value !== undefined
 }
 
 /**
- * Checks if value is defined (!== undefined, !== null).
+ * 检查给定值是否定义 (!== undefined, !== null).
+ *
+ * @param {*} value 用于检查的值
+ * @return {boolean} 如果值已定义则返回 true, 否则返回 false
  */
 export function isDefined<T>(value: T | undefined | null): value is T {
   return value !== undefined && value !== null
 }
 
 /**
- * Checks if the given value is primitive.
+ * 检查给定的值是否为原始类型.
  *
- * Primitive Types: number , string , boolean , symbol, bigint, undefined, null
+ * 原始类型: number , string , boolean , symbol, bigint, undefined, null
  *
- * @param {*} value value to check
- * @returns {boolean} result
+ * @param {*} value 用于检查的值
+ * @return {boolean} 如果值是原始类型则返回 true, 否则返回 false
  */
 export function isPrimitive(value: any): boolean {
   return (
@@ -31,7 +37,13 @@ export function isPrimitive(value: any): boolean {
   )
 }
 
-export function isEmpty(value: any) {
+/**
+ * 检查给定的值是否为空.
+ *
+ * @param {*} value 用于检查的值
+ * @return {boolean} 如果值为空则返回 true, 否则返回 false
+ */
+export function isEmpty(value: unknown): boolean {
   if (value === true || value === false)
     return true
   if (value === null || value === undefined)
@@ -80,6 +92,7 @@ export function isEqual<TType>(value: TType, comparison: TType): boolean {
   }
 
   const keysX = Reflect.ownKeys(value as unknown as object) as (keyof typeof value)[]
+
   const keysY = Reflect.ownKeys(comparison as unknown as object)
   if (keysX.length !== keysY.length)
     return false

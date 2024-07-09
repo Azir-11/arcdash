@@ -78,6 +78,22 @@ describe('check common module', () => {
     it('returns true for non-empty object', () => {
       expect(_.isNotEmpty({ key: 'value' })).toBeTruthy()
     })
+
+    it('returns true for number 1', () => {
+      expect(_.isNotEmpty(1)).toBeTruthy()
+    })
+
+    it('returns true for number 0', () => {
+      expect(_.isNotEmpty(0)).toBeTruthy()
+    })
+
+    it('returns true for empty array', () => {
+      expect(_.isNotEmpty([])).toBeTruthy()
+    })
+
+    it('returns true for empty object', () => {
+      expect(_.isNotEmpty({})).toBeTruthy()
+    })
   })
 
   describe('isEmpty function', () => {
@@ -140,6 +156,12 @@ describe('check common module', () => {
     it('returns true for equal objects', () => {
       const obj1 = { key: 'value' }
       const obj2 = { key: 'value' }
+      expect(_.isEqual(obj1, obj2)).toBeTruthy()
+    })
+
+    it('returns true for equal objects B', () => {
+      const obj1 = { key: 'value' }
+      const obj2 = obj1
       expect(_.isEqual(obj1, obj2)).toBeTruthy()
     })
 
@@ -213,6 +235,8 @@ describe('check common module', () => {
     it('returns false for function', () => {
       expect(_.isPrimitive(() => {})).toBeFalsy()
     })
+
+    // TODO: 完善测试用例
   })
 
   describe('isDefined function', () => {

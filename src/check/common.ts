@@ -54,32 +54,39 @@ export function isEmpty(value: any) {
   return keys === 0
 }
 
-export function isEqual<TType>(x: TType, y: TType): boolean {
-  if (Object.is(x, y))
+/**
+ * 检查传入的两个值是否相等.
+ *
+ * @param {*} value 第一个值
+ * @param {*} comparison 第二个值
+ * @return {boolean} 如果两个值相等则返回 true, 否则返回 false
+ */
+export function isEqual<TType>(value: TType, comparison: TType): boolean {
+  if (Object.is(value, comparison))
     return true
-  if (x instanceof Date && y instanceof Date)
-    return x.getTime() === y.getTime()
+  if (value instanceof Date && comparison instanceof Date)
+    return value.getTime() === comparison.getTime()
 
-  if (x instanceof RegExp && y instanceof RegExp)
-    return x.toString() === y.toString()
+  if (value instanceof RegExp && comparison instanceof RegExp)
+    return value.toString() === comparison.toString()
 
   if (
-    typeof x !== 'object'
-    || x === null
-    || typeof y !== 'object'
-    || y === null
+    typeof value !== 'object'
+    || value === null
+    || typeof comparison !== 'object'
+    || comparison === null
   ) {
     return false
   }
 
-  const keysX = Reflect.ownKeys(x as unknown as object) as (keyof typeof x)[]
-  const keysY = Reflect.ownKeys(y as unknown as object)
+  const keysX = Reflect.ownKeys(value as unknown as object) as (keyof typeof value)[]
+  const keysY = Reflect.ownKeys(comparison as unknown as object)
   if (keysX.length !== keysY.length)
     return false
   for (let i = 0; i < keysX.length; i++) {
-    if (!Reflect.has(y as unknown as object, keysX[i]))
+    if (!Reflect.has(comparison as unknown as object, keysX[i]))
       return false
-    if (!isEqual(x[keysX[i]], y[keysX[i]]))
+    if (!isEqual(value[keysX[i]], comparison[keysX[i]]))
       return false
   }
   return true
@@ -88,11 +95,8 @@ export function isEqual<TType>(x: TType, y: TType): boolean {
 /**
  * 判断两个值是否不相等
  */
-export function notEquals(value: unknown, comparison: unknown): boolean {
-  if (typeof value === 'object' && value !== null && typeof comparison === 'object' && comparison !== null)
-    return !isEqual(value, comparison)
-
-  return value !== comparison
+export function notEquals<TType>(value: TType, comparison: TType): boolean {
+  return !isEqual(value, comparison)
 }
 
 export function isNil(value: unknown) {

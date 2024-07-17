@@ -10,21 +10,21 @@ export {
   isEmpty,
   isEqual,
   isNil,
-} from './check/common'
+} from './lang/common'
 export {
   isArray,
   arrayNotEmpty,
   arrayNotContains,
   arrayContains,
   arrayUnique,
-} from './check/array'
+} from './lang/array'
 export {
   isSymbol,
   isObject,
   isFunction,
   isDate,
   isPromise,
-} from './check/object'
+} from './lang/object'
 export {
   isNumber,
   isInt,
@@ -33,6 +33,6 @@ export {
   isPositive,
   max,
   min,
-} from './check/number'
-export { isString } from './check/string'
-export { isBoolean } from './check/boolean'
+} from './lang/number'
+export { isString } from './lang/string'
+export { isBoolean } from './lang/boolean'

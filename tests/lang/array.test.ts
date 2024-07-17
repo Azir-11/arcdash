@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import * as _ from '../../src'
 
-describe('array check module', () => {
+describe('array lang module', () => {
   describe('isArray function', () => {
     it('returns false for null', () => {
       const result = _.isArray(null)

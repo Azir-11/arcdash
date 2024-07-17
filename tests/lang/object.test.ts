@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import * as _ from '../../src'
 
-describe('check common module', () => {
+describe('lang common module', () => {
   describe('isObject function', () => {
     it('returns false for null', () => {
       const result = _.isObject(null)

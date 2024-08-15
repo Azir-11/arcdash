@@ -36,3 +36,4 @@ export {
 } from './lang/number'
 export { isString } from './lang/string'
 export { isBoolean } from './lang/boolean'
+export { waitFor } from './time/wait'

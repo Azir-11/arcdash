@@ -107,11 +107,19 @@ export function isEqual<TType>(value: TType, comparison: TType): boolean {
 
 /**
  * 判断两个值是否不相等
+ *
+ * @param value 用于检查的值
+ * @param comparison 用于比较的值
  */
-export function notEquals<TType>(value: TType, comparison: TType): boolean {
+export function notEquals<T>(value: T, comparison: T): boolean {
   return !isEqual(value, comparison)
 }
 
-export function isNil(value: unknown) {
+/**
+ * 判断给定的值是否为 null 或 undefined
+ *
+ * @param value 用于检查的值
+ */
+export function isNil(value: unknown): boolean {
   return value == null
 }

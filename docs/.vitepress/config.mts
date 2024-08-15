@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import {arrayContains, arrayUnique, isNil} from "../../src";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -16,7 +17,7 @@ export default defineConfig({
     },
     nav: [
       { text: '指引', link: '/guide/intro' },
-      { text: 'Api', link: '/api/array/formatArrayToString' },
+      { text: 'Api', link: '/api/lang/array/isArray' },
     ],
     sidebar: {
       '/guide/': [
@@ -31,8 +32,45 @@ export default defineConfig({
       ],
       '/api/': [
         {
-          text: 'Array',
+          text: 'Lang',
           collapsed: true,
+          items: [
+            {
+              text: 'Array',
+                collapsed: false,
+                items: [
+                  { text: 'isArray', link: '/api/lang/array/isArray' },
+                  { text: 'arrayNotEmpty', link: '/api/lang/array/arrayNotEmpty' },
+                  { text: 'arrayContains', link: '/api/lang/array/arrayContains' },
+                  { text: 'arrayNotContains', link: '/api/lang/array/arrayNotContains' },
+                  { text: 'arrayUnique', link: '/api/lang/array/arrayUnique' },
+                ],
+            },
+            {
+              text: 'Boolean',
+              collapsed: false,
+              items: [
+                { text: 'isBoolean', link: '/api/lang/boolean/isBoolean' },
+              ]
+            },
+            {
+              text: 'Common',
+              collapsed: false,
+              items: [
+                { text: 'isNotEmpty', link: '/api/lang/common/isNotEmpty' },
+                { text: 'isDefined', link: '/api/lang/common/isDefined' },
+                { text: 'isPrimitive', link: '/api/lang/common/isPrimitive' },
+                { text: 'isEmpty', link: '/api/lang/common/isEmpty' },
+                { text: 'isEqual', link: '/api/lang/common/isEqual' },
+                { text: 'notEquals', link: '/api/lang/common/notEquals' },
+                { text: 'isNil', link: '/api/lang/common/isNil' },
+              ]
+            }
+          ]
+        },
+        {
+          text: 'Array',
+          collapsed: false,
           items: [
             { text: 'formatArrayToString', link: '/api/array/formatArrayToString' },
             { text: 'sum', link: '/api/array/sum' },

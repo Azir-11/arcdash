@@ -16,7 +16,7 @@ export default defineConfig({
     },
     nav: [
       { text: '指引', link: '/guide/intro' },
-      { text: 'Api', link: '/api/array/joinValues' },
+      { text: 'Api', link: '/api/array/formatArrayToString' },
     ],
     sidebar: {
       '/guide/': [
@@ -34,7 +34,7 @@ export default defineConfig({
           text: 'Array',
           collapsed: true,
           items: [
-            { text: 'joinValues', link: '/api/array/joinValues' },
+            { text: 'formatArrayToString', link: '/api/array/formatArrayToString' },
             { text: 'sum', link: '/api/array/sum' },
           ],
         },

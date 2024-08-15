@@ -1,4 +1,4 @@
-export { joinValues, sum, mergeArraysByKeyValue, head, last } from './array'
+export { formatArrayToString, sum, mergeArraysByKeyValue, head, last } from './array'
 export type { Unit } from './number/byte'
 export { autoConvertBytes, convertBytes, convertBytesTo } from './number/byte'
 export { convertToBase26 } from './number/base'

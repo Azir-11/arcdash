@@ -33,9 +33,6 @@ type ArrayUniqueIdentifier<T = any> = (o: T) => any
  * 检查所有数组的值是否唯一。
  * 对象的比较是基于引用的。
  * 如果给定null或undefined，则此函数返回false。
- *
- * @param array 要检查的数组
- * @param identifier 用于标识对象的函数
  */
 export function arrayUnique(
   array: unknown[],

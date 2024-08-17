@@ -1,5 +1,4 @@
 import { defineConfig } from 'vitepress'
-import {arrayContains, arrayUnique, isNil} from "../../src";
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -37,21 +36,21 @@ export default defineConfig({
           items: [
             {
               text: 'Array',
-                collapsed: false,
-                items: [
-                  { text: 'isArray', link: '/api/lang/array/isArray' },
-                  { text: 'arrayNotEmpty', link: '/api/lang/array/arrayNotEmpty' },
-                  { text: 'arrayContains', link: '/api/lang/array/arrayContains' },
-                  { text: 'arrayNotContains', link: '/api/lang/array/arrayNotContains' },
-                  { text: 'arrayUnique', link: '/api/lang/array/arrayUnique' },
-                ],
+              collapsed: false,
+              items: [
+                { text: 'isArray', link: '/api/lang/array/isArray' },
+                { text: 'arrayNotEmpty', link: '/api/lang/array/arrayNotEmpty' },
+                { text: 'arrayContains', link: '/api/lang/array/arrayContains' },
+                { text: 'arrayNotContains', link: '/api/lang/array/arrayNotContains' },
+                { text: 'arrayUnique', link: '/api/lang/array/arrayUnique' },
+              ],
             },
             {
               text: 'Boolean',
               collapsed: false,
               items: [
                 { text: 'isBoolean', link: '/api/lang/boolean/isBoolean' },
-              ]
+              ],
             },
             {
               text: 'Common',
@@ -64,9 +63,9 @@ export default defineConfig({
                 { text: 'isEqual', link: '/api/lang/common/isEqual' },
                 { text: 'notEquals', link: '/api/lang/common/notEquals' },
                 { text: 'isNil', link: '/api/lang/common/isNil' },
-              ]
-            }
-          ]
+              ],
+            },
+          ],
         },
         {
           text: 'Array',

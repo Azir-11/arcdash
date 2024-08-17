@@ -28,7 +28,7 @@ string: 连接后的字符串。
 
 ## 示例代码
 ```typescript
-import { formatArrayToString } from 'arcdash'
+import { formatArrayToString } from 'arcdash';
 
 // 示例1: 基本使用，使用默认分隔符
 const numbers = [1, 2, 3, 4];

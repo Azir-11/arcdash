@@ -11,7 +11,7 @@ arrayContains 函数用于检查一个数组是否包含一组特定的值。它
 export function arrayContains(
   array: unknown,
   values: any[]
-): boolean;
+): boolean
 ```
 
 ### 参数
@@ -23,20 +23,20 @@ boolean: 如果 array 包含 values 数组中的所有值，则返回 true；否
 
 ## 示例代码
 ```typescript
-import { arrayContains } from 'arcdash';
+import { arrayContains } from 'arcdash'
 
-const numbers = [1, 2, 3, 4];
-const valuesToCheck = [2, 4];
-console.log(arrayContains(numbers, valuesToCheck)); // 输出: true
+const numbers = [1, 2, 3, 4]
+const valuesToCheck = [2, 4]
+console.log(arrayContains(numbers, valuesToCheck)) // 输出: true
 
 // 示例2: 检查包含非数组类型的数组
-const notAnArray = "not an array";
-console.log(arrayContains(notAnArray, [1, 2])); // 输出: false
+const notAnArray = 'not an array'
+console.log(arrayContains(notAnArray, [1, 2])) // 输出: false
 
 // 示例3: 检查对象数组
-const people = [{ name: "Alice" }, { name: "Bob" }];
-const peopleToCheck = [{ name: "Alice" }];
-console.log(arrayContains(people, peopleToCheck)); // 输出: false，因为对象的比较是引用比较
+const people = [{ name: 'Alice' }, { name: 'Bob' }]
+const peopleToCheck = [{ name: 'Alice' }]
+console.log(arrayContains(people, peopleToCheck)) // 输出: false，因为对象的比较是引用比较
 ```
 
 ## 注意事项

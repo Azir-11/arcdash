@@ -8,7 +8,7 @@ arrayNotEmpty 函数用于检查传入的值是否为非空数组。该函数接
 
 ## 函数签名
 ``` typescript
-export function arrayNotEmpty(array: unknown): boolean;
+export function arrayNotEmpty(array: unknown): boolean
 ```
 
 ### 参数
@@ -20,23 +20,23 @@ boolean: 如果 array 不包含 values 数组中的任何值，则返回 true；
 
 ## 示例代码
 ```typescript
-import { arrayNotEmpty } from 'arcdash';
+import { arrayNotEmpty } from 'arcdash'
 
 // 示例1: 检查非空数值数组
-const numbers = [1, 2, 3];
-console.log(arrayNotEmpty(numbers)); // 输出: true
+const numbers = [1, 2, 3]
+console.log(arrayNotEmpty(numbers)) // 输出: true
 
 // 示例2: 检查空数组
-const emptyArray = [];
-console.log(arrayNotEmpty(emptyArray)); // 输出: false
+const emptyArray = []
+console.log(arrayNotEmpty(emptyArray)) // 输出: false
 
 // 示例3: 检查非数组类型
-const notAnArray = "not an array";
-console.log(arrayNotEmpty(notAnArray)); // 输出: false
+const notAnArray = 'not an array'
+console.log(arrayNotEmpty(notAnArray)) // 输出: false
 ```
 
 ## 注意事项
 1. 函数会首先检查传入的 array 是否为数组类型，如果不是数组则直接返回 false。
-2. 即使 array 是数组类型，如果它的长度为 0，函数也会返回 false。 
+2. 即使 array 是数组类型，如果它的长度为 0，函数也会返回 false。
 3. 函数对于 null 或 undefined 输入也会返回 false。
 4. 函数不会修改原始数组。

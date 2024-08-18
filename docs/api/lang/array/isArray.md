@@ -4,7 +4,7 @@
 
 ## 函数签名
 ``` typescript
-export const isArray: (value: any) => boolean;
+export const isArray: (value: any) => boolean
 ```
 
 ### 参数
@@ -13,20 +13,19 @@ export const isArray: (value: any) => boolean;
 ### 返回值
 boolean: 如果传入的值是一个数组，则返回 true；否则返回 false。
 
-
 ## 示例代码
 
 ```typescript
-import { isArray } from 'arcdash';
+import { isArray } from 'arcdash'
 
 // 示例1: 检查数组
-const numbers = [1, 2, 3];
-console.log(isArray(numbers)); // 输出: true
+const numbers = [1, 2, 3]
+console.log(isArray(numbers)) // 输出: true
 
 // 示例2: 检查非数组对象
-const notAnArray = {};
-console.log(isArray(notAnArray)); // 输出: false
+const notAnArray = {}
+console.log(isArray(notAnArray)) // 输出: false
 
 // 示例3: 检查 null
-console.log(isArray(null)); // 输出: false
+console.log(isArray(null)) // 输出: false
 ```

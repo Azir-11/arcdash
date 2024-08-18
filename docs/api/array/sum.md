@@ -10,17 +10,17 @@ sum 函数用于计算数组中所有元素的总和。它支持两种使用方�
 ``` typescript
 export function sum<T extends number>(
   array: readonly T[]
-): number;
+): number
 
 export function sum<T extends object>(
   array: readonly T[],
   fn: (item: T) => number
-): number;
+): number
 
 export function sum<T extends object | number>(
   array: readonly any[],
   fn?: (item: T) => number
-): number;
+): number
 ```
 
 ### 参数
@@ -32,23 +32,23 @@ number: 数组元素的总和。
 
 ## 示例代码
 ```typescript
-import { sum } from 'arcdash';
+import { sum } from 'arcdash'
 
 // 示例1: 对数值数组求和
-const numbers = [1, 2, 3, 4];
-console.log(sum(numbers)); // 输出: 10
+const numbers = [1, 2, 3, 4]
+console.log(sum(numbers)) // 输出: 10
 
 // 示例2: 对对象数组求和，使用属性值
-const items = [{ value: 5 }, { value: 10 }];
-console.log(sum(items, item => item.value)); // 输出: 15
+const items = [{ value: 5 }, { value: 10 }]
+console.log(sum(items, item => item.value)) // 输出: 15
 
 // 示例3: 对对象数组求和，使用自定义函数
-const people = [{ age: 25 }, { age: 30 }];
-console.log(sum(people, person => person.age)); // 输出: 55
+const people = [{ age: 25 }, { age: 30 }]
+console.log(sum(people, person => person.age)) // 输出: 55
 ```
 
 ## 注意事项
-1. 当数组元素为基本数值类型时，可以直接求和，无需提供 fn 函数。 
-2. 当数组元素为对象时，必须提供 fn 函数来指定如何从对象中提取数值。 
-3. 如果数组为空或未提供数组，则函数返回 0。 
+1. 当数组元素为基本数值类型时，可以直接求和，无需提供 fn 函数。
+2. 当数组元素为对象时，必须提供 fn 函数来指定如何从对象中提取数值。
+3. 如果数组为空或未提供数组，则函数返回 0。
 4. 函数不会修改原始数组。

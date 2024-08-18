@@ -6,7 +6,9 @@ export function isSymbol(value: any): value is symbol {
   return !!value && value.constructor === Symbol
 }
 
-export function isFunction(value: any): value is Function {
+type AnyFunction = (...args: any[]) => any
+
+export function isFunction(value: any): value is AnyFunction {
   return !!(value && value.constructor && value.call && value.apply)
 }
 

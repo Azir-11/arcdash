@@ -9,9 +9,9 @@ arrayUnique 函数用于检查一个数组中的元素是否都是唯一的。�
 ## 函数签名
 ``` typescript
 export function arrayUnique<T>(
-array: T[],
-identifier?: (item: T) => any
-): boolean;
+  array: T[],
+  identifier?: (item: T) => any
+): boolean
 ```
 
 ## 参数
@@ -22,19 +22,19 @@ identifier?: (item: T) => any
 boolean: 如果数组中的所有元素都是唯一的，返回 true；否则返回 false。
 
 ## 示例代码
-``` javascript
+``` typescript
 // 示例1: 基本使用
-const numbers = [1, 2, 3, 4];
-console.log(arrayUnique(numbers)); // 输出: true
+const numbers = [1, 2, 3, 4]
+console.log(arrayUnique(numbers)) // 输出: true
 
 // 示例2: 使用 identifier 函数
 interface Item {
-    id: number;
-    name: string;
+  id: number
+  name: string
 }
 
-const items = [{ id: 1, name: 'Item1' }, { id: 2, name: 'Item2' }, { id: 1, name: 'Duplicate' }];
-console.log(arrayUnique<Item>(items, item => item.id)); // 输出: false，因为有两个 id 相同的元素
+const items = [{ id: 1, name: 'Item1' }, { id: 2, name: 'Item2' }, { id: 1, name: 'Duplicate' }]
+console.log(arrayUnique<Item>(items, item => item.id)) // 输出: false，因为有两个 id 相同的元素
 ```
 
 ## 注意事项

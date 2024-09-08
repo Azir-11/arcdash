@@ -29,12 +29,12 @@
   "scripts": {
     "test": "vitest",
     "build": "pnpm tsc --noEmit && pnpm rollup -c",
-    "docs:dev": "vitepress dev docs",
+    "dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
     "typecheck": "vue-tsc --noEmit --skipLibCheck",
     "cleanup": "soy cleanup",
-    "commit": "soy git-commit",
+    "commit": "soy git-commit -l=zh-cn",
     "lint": "eslint . --fix",
     "release": "soy release",
     "update-pkg": "soy update-pkg"

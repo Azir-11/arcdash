@@ -7,7 +7,7 @@ arrayUnique 函数用于检查一个数组中的元素是否都是唯一的。�
 函数会先验证输入是否为数组。如果提供了 identifier 函数，它会应用于数组的每个元素，以获取用于判断的唯一标识。接着，函数通过过滤出数组中首次出现的元素来创建一个临时数组 uniqueItems。最后，通过比较原数组和 uniqueItems 的长度来判断数组元素是否唯一。
 
 ## 函数签名
-``` typescript
+```typescript
 export function arrayUnique<T>(
   array: T[],
   identifier?: (item: T) => any
@@ -22,7 +22,7 @@ export function arrayUnique<T>(
 boolean: 如果数组中的所有元素都是唯一的，返回 true；否则返回 false。
 
 ## 示例代码
-``` typescript
+```typescript
 // 示例1: 基本使用
 const numbers = [1, 2, 3, 4]
 console.log(arrayUnique(numbers)) // 输出: true

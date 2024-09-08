@@ -7,7 +7,7 @@ sum 函数用于计算数组中所有元素的总和。它支持两种使用方�
 函数首先检查数组是否为空，如果为空，则返回 0。然后使用 reduce 方法来累加数组中的元素。如果提供了 fn 函数，则该函数将应用于数组的每个元素，以获取用于求和的数值；如果没有提供 fn，则直接累加数组中的元素值。
 
 ## 函数签名
-``` typescript
+```typescript
 export function sum<T extends number>(
   array: readonly T[]
 ): number

@@ -12,7 +12,7 @@ hero:
       link: /guide/intro
     - theme: alt
       text: Api列表
-      link: /api/lang/array/isArray
+      link: /api/time/waitFor
     - theme: alt
       text: 在GitHub上查看
       link: https://github.com/Azir-11/arcdash

@@ -7,7 +7,7 @@ isPrimitive 函数用于检查传入的值是否为原始数据类型。它接�
 此函数会检查传入的 value 是否属于 JavaScript 的原始数据类型（`undefined`、`null`、`boolean`、`number`、`string`、`symbol` 和 `bigint`）。如果是这些类型之一，函数将返回 true；否则返回 false。
 
 ## 函数签名
-``` typescript
+```typescript
 export function isPrimitive(value: any): boolean
 ```
 
@@ -18,7 +18,7 @@ export function isPrimitive(value: any): boolean
 boolean: 如果传入值为原始数据类型，则返回 true；否则返回 false。
 
 ## 示例代码
-``` typescript
+```typescript
 import { isPrimitive } from 'arcdash'
 
 console.log(isPrimitive(2)) // 输出: true

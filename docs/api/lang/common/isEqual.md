@@ -11,7 +11,7 @@ isEqual 函数用于比较两个值是否相等，支持深度比较。它接受
 - 如果任一值是 `null` 或者不是对象，函数返回 `false`。
 
 ## 函数签名
-``` typescript
+```typescript
 export function isEqual<T>(value: T, comparison: T): boolean
 ```
 
@@ -23,7 +23,7 @@ export function isEqual<T>(value: T, comparison: T): boolean
 boolean: 如果两个值相等，则返回 true；否则返回 false。
 
 ## 示例代码
-``` typescript
+```typescript
 import { isEqual } from 'arcdash'
 
 console.log(isEqual(10, 10)) // 输出: true

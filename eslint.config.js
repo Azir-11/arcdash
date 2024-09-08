@@ -11,6 +11,7 @@ export default antfu(
     rules: {
       'ts/no-invalid-void-type': 'off',
       'prefer-regex-literals': 'off',
+      'no-new-wrappers': 'off',
     },
   },
 )

@@ -7,7 +7,7 @@ isBoolean 函数用于判断给定的值是否为布尔类型。
 该函数使用 typeof 操作符来检查传入的 value 是否具有 'boolean' 类型。如果 value 是布尔类型，则返回 true；否则返回 false。
 
 ## 函数签名
-``` typescript
+```typescript
 export function isBoolean(value: unknown): boolean
 ```
 

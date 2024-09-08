@@ -18,7 +18,7 @@ export function isNotEmpty(value: unknown): boolean
 boolean: 如果传入值为非空，则返回 true；否则返回 false。
 
 ## 示例代码
-``` typescript
+```typescript
 import { isNotEmpty } from 'arcdash'
 
 console.log(isNotEmpty('hello')) // 输出: true

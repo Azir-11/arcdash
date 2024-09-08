@@ -7,7 +7,7 @@ arrayNotEmpty 函数用于检查传入的值是否为非空数组。该函数接
 函数首先验证传入的 array 是否为数组类型。然后检查该数组的长度是否大于 0。如果这两个条件都满足，则函数返回 true，表示数组非空；否则返回 false。
 
 ## 函数签名
-``` typescript
+```typescript
 export function arrayNotEmpty(array: unknown): boolean
 ```
 
@@ -16,7 +16,7 @@ export function arrayNotEmpty(array: unknown): boolean
 - boolean: 如果传入的数组非空（即长度大于 0），则返回 true；否则返回 false。
 
 ### 返回值
-boolean: 如果 array 不包含 values 数组中的任何值，则返回 true；如果至少包含一个值，则返回 false。
+boolean: 如果 array 是数组且长度不为 0， 则返回 true；否则返回 false。
 
 ## 示例代码
 ```typescript

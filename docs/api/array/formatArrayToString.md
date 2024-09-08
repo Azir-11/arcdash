@@ -7,7 +7,7 @@ formatArrayToString 函数用于将数组中的元素连接为一个字符串，
 函数首先从提供的选项中提取分隔符和转换函数。如果数组为空，函数将返回空字符串。接着，函数使用 map 方法将数组中的每个元素应用转换函数（如果有提供），并使用 filter 方法排除任何 null 或 undefined 的值。最后，函数使用 join 方法将剩余的元素连接为一个字符串。
 
 ## 函数签名
-``` typescript
+```typescript
 export function formatArrayToString<T>(
   values: readonly T[],
   options?: {

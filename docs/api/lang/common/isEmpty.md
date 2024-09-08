@@ -14,7 +14,7 @@ isEmpty 函数用于检查传入的值是否为空。它接受一个参数：需
 - 对象无属性
 
 ## 函数签名
-``` typescript
+```typescript
 export function isEmpty(value: unknown): boolean
 ```
 
@@ -25,7 +25,7 @@ export function isEmpty(value: unknown): boolean
 boolean: 如果传入值为空，则返回 true；否则返回 false。
 
 ## 示例代码
-``` typescript
+```typescript
 import { isEmpty } from 'arcdash'
 
 console.log(isEmpty(false)) // 输出: true

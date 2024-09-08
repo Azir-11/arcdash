@@ -3,7 +3,7 @@
 这个函数实质上就是Array.isArray，没有进行过任何加工。
 
 ## 函数签名
-``` typescript
+```typescript
 export const isArray: (value: any) => boolean
 ```
 

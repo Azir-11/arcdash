@@ -16,7 +16,7 @@ export default defineConfig({
     },
     nav: [
       { text: '指引', link: '/guide/intro' },
-      { text: 'Api', link: '/api/lang/array/isArray' },
+      { text: 'Api', link: '/api/time/waitFor' },
     ],
     sidebar: {
       '/guide/': [
@@ -31,7 +31,19 @@ export default defineConfig({
       ],
       '/api/': [
         {
-          text: 'Lang',
+          text: 'Time · 神奇的表',
+          collapsed: false,
+          items: [
+            {
+              collapsed: false,
+              items: [
+                { text: 'waitFor', link: '/api/time/waitFor' },
+              ],
+            },
+          ],
+        },
+        {
+          text: 'Lang · 专判雄雌',
           collapsed: true,
           items: [
             {
@@ -65,22 +77,56 @@ export default defineConfig({
                 { text: 'isNil', link: '/api/lang/common/isNil' },
               ],
             },
+            {
+              text: 'Number',
+              collapsed: false,
+              items: [
+                { text: 'isNumber', link: '/api/lang/number/isNumber' },
+                { text: 'isInt', link: '/api/lang/number/isInt' },
+                { text: 'isFloat', link: '/api/lang/number/isFloat' },
+                { text: 'isNegative', link: '/api/lang/number/isNegative' },
+                { text: 'isPositive', link: '/api/lang/number/isPositive' },
+                { text: 'max', link: '/api/lang/number/max' },
+                { text: 'min', link: '/api/lang/number/min' },
+              ],
+            },
+            {
+              text: 'Object',
+              collapsed: false,
+              items: [
+                { text: 'isObject', link: '/api/lang/object/isObject' },
+                { text: 'isSymbol', link: '/api/lang/object/isSymbol' },
+                { text: 'isFunction', link: '/api/lang/object/isFunction' },
+                { text: 'isDate', link: '/api/lang/object/isDate' },
+                { text: 'isPromise', link: '/api/lang/object/isPromise' },
+              ],
+            },
+            {
+              text: 'String',
+              collapsed: false,
+              items: [
+                { text: 'isString', link: '/api/lang/string/isString' },
+              ],
+            },
           ],
         },
         {
-          text: 'Array',
-          collapsed: false,
+          text: 'Array · 伸缩自如',
+          collapsed: true,
           items: [
             { text: 'formatArrayToString', link: '/api/array/formatArrayToString' },
+            { text: 'head', link: '/api/array/head' },
+            { text: 'last', link: '/api/array/last' },
+            { text: 'map', link: '/api/array/map' },
+            { text: 'mergeArraysByKeyValue', link: '/api/array/mergeArraysByKeyValue' },
             { text: 'sum', link: '/api/array/sum' },
           ],
         },
         {
-          text: 'Number',
-          collapsed: false,
+          text: 'Number · 算来算去',
+          collapsed: true,
           items: [
             {
-              text: '字节转换',
               collapsed: false,
               items: [
                 { text: 'autoConvertBytes', link: '/api/number/byte/autoConvertBytes' },

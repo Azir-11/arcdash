@@ -7,7 +7,7 @@ notEquals 函数用于判断两个值是否不相等。它接受两个参数：�
 此函数使用已定义的 isEqual 函数来比较两个值。如果 isEqual 返回 true（即两值相等），notEquals 则返回 false，表示两值不相等；反之，如果 isEqual 返回 false，则 notEquals 返回 true。
 
 ## 函数签名
-``` typescript
+```typescript
 export function notEquals<T>(value: T, comparison: T): boolean
 ```
 
@@ -19,7 +19,7 @@ export function notEquals<T>(value: T, comparison: T): boolean
 boolean: 如果两个值不相等，则返回 true；如果两个值相等，则返回 false。
 
 ## 示例代码
-``` typescript
+```typescript
 import { notEquals } from 'arcdash'
 
 console.log(notEquals(10, 10)) // 输出: false

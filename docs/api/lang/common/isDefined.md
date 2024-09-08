@@ -18,7 +18,7 @@ export function isDefined<T>(value: T | undefined | null): value is T
 value is T: 类型谓词，指示 value 确实是类型 T，并非 undefined 或 null。
 
 ## 示例代码
-``` typescript
+```typescript
 import { isNotEmpty } from 'arcdash'
 
 const maybeNumber: number | undefined = 10

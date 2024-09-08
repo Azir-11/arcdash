@@ -7,7 +7,7 @@ arrayNotContains 函数用于检查一个数组是否不包含一组特定的值
 函数首先验证传入的 array 是否为数组类型。如果传入的不是数组，函数将立即返回 false。如果 array 是数组，函数将使用 every 方法检查 values 数组中的每个值都不在 array 中。如果所有值都不在 array 中，every 方法将返回 true，否则返回 false。
 
 ## 函数签名
-``` typescript
+```typescript
 export function arrayNotContains(
   array: unknown,
   values: any[]

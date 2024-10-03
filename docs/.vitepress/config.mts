@@ -31,7 +31,7 @@ export default defineConfig({
       ],
       '/api/': [
         {
-          text: 'Time · 神奇的表',
+          text: 'Time · 食光',
           collapsed: false,
           items: [
             {
@@ -43,7 +43,7 @@ export default defineConfig({
           ],
         },
         {
-          text: 'Lang · 专判雄雌',
+          text: 'Lang · 弱类型真好',
           collapsed: true,
           items: [
             {
@@ -111,7 +111,7 @@ export default defineConfig({
           ],
         },
         {
-          text: 'Array · 伸缩自如',
+          text: 'Array · 天上的玻璃珠',
           collapsed: true,
           items: [
             { text: 'formatArrayToString', link: '/api/array/formatArrayToString' },
@@ -123,7 +123,7 @@ export default defineConfig({
           ],
         },
         {
-          text: 'Number · 算来算去',
+          text: 'Number · 上帝说祂也不会',
           collapsed: true,
           items: [
             {

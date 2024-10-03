@@ -4,8 +4,8 @@ layout: home
 
 hero:
   name: "Arcdash"
-  text: "注重业务的优雅函数库"
-  tagline: 致力于让工作更轻松
+  text: "现代的JS/TS工具库"
+  tagline: 更全！更小！更快！
   actions:
     - theme: brand
       text: 开始

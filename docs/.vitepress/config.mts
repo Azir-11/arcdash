@@ -4,8 +4,26 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   title: 'Arcdash',
   description:
-    'Business Function Library - Modern, Simple, Typed, and Powerful',
+    'Modern JS/TS tool library',
   lastUpdated: true,
+  head: [
+    ['meta', { name: 'author', content: 'Azir-11' }],
+    [
+      'meta',
+      {
+        name: 'keywords',
+        content: 'arcdash, azir, JavaScript function library, function library',
+      },
+    ],
+    [
+      'meta',
+      {
+        name: 'viewport',
+        content: 'width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no',
+      },
+    ],
+    ['link', { rel: 'icon', href: '/favicon.ico' }],
+  ],
   themeConfig: {
     editLink: {
       pattern: 'https://github.com/Azir-11/arcdash/tree/main/docs/:path',

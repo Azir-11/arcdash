@@ -6,15 +6,15 @@
 
 ::: code-group
 
-```npm [npm]
+```bash [npm]
 npm install arcdash
 ```
 
-```yarn [yarn]
+```bash [yarn]
 yarn add arcdash
 ```
 
-```pnpm [pnpm]
+```bash [pnpm]
 pnpm add arcdash
 ```
 :::

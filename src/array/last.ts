@@ -1,8 +1,18 @@
 /**
  * 返回数组的最后一个元素，如果数组为空则返回 undefined。
+ *
+ * @title last
+ *
  * @template T 数组中元素的类型。
  * @param {T[]} array - 输入数组。
  * @returns {T | undefined} 数组的最后一个元素，如果数组为空则返回 undefined。
+ *
+ * @example
+ * import { last } from 'arcdash'
+ *
+ * last([1, 2, 3]) // 3
+ * last(['a', 'b', 'c']) // 'c'
+ * last([]) // undefined
  */
 export function last<T>(array: T[]): T | undefined {
   return array.length > 0 ? array[array.length - 1] : undefined

@@ -1,3 +1,23 @@
+/**
+ * 根据指定的键值合并两个数组
+ *
+ * @title mergeArraysByKeyValue
+ *
+ * @param localArray - 本地数组
+ * @param remoteArray - 远程数组
+ * @param key - 用于匹配的键
+ * @param childrenKey - 子数组的键（可选）
+ * @returns 合并后的数组
+ *
+ * @example
+ * import { mergeArraysByKeyValue } from 'arcdash'
+ *
+ * const local = [{ id: 1, name: 'A' }, { id: 2, name: 'B' }]
+ * const remote = [{ id: 1, age: 20 }, { id: 3, name: 'C' }]
+ *
+ * mergeArraysByKeyValue(local, remote, 'id')
+ * // [{ id: 1, name: 'A', age: 20 }, { id: 2, name: 'B' }]
+ */
 export function mergeArraysByKeyValue<T extends { [key: string]: any }>(
   localArray: T[],
   remoteArray: T[],

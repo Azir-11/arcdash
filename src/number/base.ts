@@ -1,9 +1,19 @@
 /**
  * 将十进制数字转换为26进制
  *
+ * @title convertToBase26
+ *
  * TODO: 该函数目前还存在问题
  *
  * @param decimalNumber 十进制数字
+ * @returns 26进制字符串
+ *
+ * @example
+ * import { convertToBase26 } from 'arcdash'
+ *
+ * convertToBase26(1) // 'A'
+ * convertToBase26(26) // 'Z'
+ * convertToBase26(27) // 'AA'
  */
 export function convertToBase26(decimalNumber: number | string): string {
   decimalNumber = Number(decimalNumber)

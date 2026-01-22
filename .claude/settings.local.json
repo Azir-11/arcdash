@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(pnpm build)"
+      "Bash(pnpm build)",
+      "Bash(pnpm docs:gen)"
     ]
   }
 }

@@ -1,4 +1,3 @@
-/* eslint-disable eslint-comments/no-unlimited-disable */
 // @ts-nocheck
 /* eslint-disable */
 /* prettier-ignore-start */
@@ -7,6 +6,16 @@
  * 仅允许修改菜单分组的 text 字段。
  */
 const pages = [
+  {
+    "text": "",
+    "items": [
+      {
+        "text": "amount",
+        "link": "/api/amount"
+      }
+    ],
+    "dir": "amount"
+  },
   {
     "text": "Array",
     "items": [

@@ -33,6 +33,7 @@ export {
   isSymbol,
 } from './lang/object'
 export { isString } from './lang/string'
+export { default as amount } from './amount/amount'
 export { convertToBase26 } from './number/base'
 export type { Unit } from './number/byte'
 export { autoConvertBytes, convertBytes, convertBytesTo } from './number/byte'

@@ -2,7 +2,12 @@
   "permissions": {
     "allow": [
       "Bash(pnpm build)",
-      "Bash(pnpm docs:gen)"
+      "Bash(pnpm docs:gen)",
+      "Bash(pnpm test)",
+      "Bash(pnpm test:*)",
+      "Bash(pnpm typecheck)",
+      "Bash(pnpm tsc --noEmit)",
+      "Bash(npx tsc:*)"
     ]
   }
 }

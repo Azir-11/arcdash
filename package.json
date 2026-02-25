@@ -1,7 +1,7 @@
 {
   "name": "arcdash",
   "type": "module",
-  "version": "0.0.51",
+  "version": "0.0.52",
   "private": false,
   "description": "Business Function Library - Modern, Simple, Typed, and Powerful",
   "author": "azir-11",
@@ -13,9 +13,16 @@
     "arcdash"
   ],
   "exports": {
-    "types": "./dist/index.d.mts",
-    "import": "./dist/index.mjs",
-    "require": "./dist/index.cjs"
+    ".": {
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
@@ -28,7 +35,7 @@
   },
   "scripts": {
     "test": "vitest",
-    "build": "pnpm tsc --noEmit && tsdown",
+    "build": "pnpm tsc --noEmit && tsdown && mv cdn/arcdash.iife.js cdn/arcdash.js && mv cdn/arcdash.iife.min.js cdn/arcdash.min.js",
     "dev": "vitepress dev docs",
     "docs:gen": "func2md --src-dir=src --out-dir=docs/api",
     "docs:build": "vitepress build docs",

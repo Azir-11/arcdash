@@ -32,7 +32,7 @@ export {
   isPromise,
   isSymbol,
 } from './lang/object'
-export { isString } from './lang/string'
+export { isIdCard, isString } from './lang/string'
 export { default as amount } from './amount/amount'
 export { convertToBase26 } from './number/base'
 export type { Unit } from './number/byte'

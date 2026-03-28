@@ -94,6 +94,10 @@ const pages = [
         "link": "/api/isFunction"
       },
       {
+        "text": "isIdCard",
+        "link": "/api/isIdCard"
+      },
+      {
         "text": "isInt",
         "link": "/api/isInt"
       },

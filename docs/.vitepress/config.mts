@@ -38,7 +38,7 @@ export default defineConfig({
     nav: [
       { text: '指引', link: '/guide/intro' },
       { text: 'Api', link: '/api/formatArrayToString' },
-      { text: 'Amount', link: '/amount/' },
+      { text: 'SafeNumber', link: '/safe-number/' },
     ],
     sidebar: {
       '/guide/': [
@@ -54,18 +54,18 @@ export default defineConfig({
       '/api/': [
         ...pages,
       ],
-      '/amount/': [
+      '/safe-number/': [
         {
-          text: 'amount 文档',
+          text: 'SafeNumber 文档',
           collapsed: true,
           items: [
-            { text: '简介', link: '/amount/' },
-            { text: '基础用法', link: '/amount/basic' },
-            { text: '算术运算', link: '/amount/arithmetic' },
-            { text: '格式化输出', link: '/amount/format' },
-            { text: '金额分配', link: '/amount/distribute' },
-            { text: '以分为单位', link: '/amount/cents' },
-            { text: '配置选项', link: '/amount/options' },
+            { text: '简介', link: '/safe-number/' },
+            { text: '基础用法', link: '/safe-number/basic' },
+            { text: '算术运算', link: '/safe-number/arithmetic' },
+            { text: '格式化输出', link: '/safe-number/format' },
+            { text: '数值分配', link: '/safe-number/distribute' },
+            { text: '以分为单位', link: '/safe-number/cents' },
+            { text: '配置选项', link: '/safe-number/options' },
           ],
         },
       ],

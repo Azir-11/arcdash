@@ -1,17 +1,17 @@
 /**
- * 一个轻量级的 JavaScript 金额处理库，用于解决 JavaScript 浮点数运算精度问题
+ * 一个轻量级的 JavaScript 安全数值计算工具，用于解决 JavaScript 浮点数运算精度问题
  *
- * @title amount
+ * @title SafeNumber
  *
  * @example
- * import { amount } from 'arcdash'
+ * import { SafeNumber } from 'arcdash'
  *
- * amount(2.51).add(0.01) // 2.52（正确，避免浮点误差）
- * amount(1000).format() // "¥1,000.00"
+ * SafeNumber(2.51).add(0.01) // 2.52（正确，避免浮点误差）
+ * SafeNumber(1000).format() // "¥1,000.00"
  */
 
-/** amount 配置选项 */
-export interface AmountOptions {
+/** SafeNumber 配置选项 */
+export interface SafeNumberOptions {
   /** 货币符号，默认 "¥" */
   symbol?: string
   /** 千位分隔符，默认 "," */
@@ -32,7 +32,7 @@ export interface AmountOptions {
   increment?: number | null
 }
 
-const defaults: Required<AmountOptions> = {
+const defaults: Required<SafeNumberOptions> = {
   symbol: '¥',
   separator: ',',
   decimal: '.',
@@ -52,20 +52,20 @@ function rounding(value: number, increment: number): number {
 
 const groupRegex = /(\d)(?=(\d{3})+\b)/g
 
-function parseAmount(value: number | string | AmountClass, opts: AmountOptions, useRounding = true): number {
+function parseSafeNumber(value: number | string | SafeNumberClass, opts: SafeNumberOptions, useRounding = true): number {
   let v = 0
   const { decimal, errorOnInvalid, precision: decimals, fromCents } = opts
   const precision = pow(decimals ?? 2)
   const isNumber = typeof value === 'number'
-  const isAmount = value instanceof AmountClass
+  const isSafeNumber = value instanceof SafeNumberClass
 
-  if (isAmount && fromCents) {
+  if (isSafeNumber && fromCents) {
     return value.intValue
   }
 
   if (isNumber) {
     v = value
-  } else if (isAmount) {
+  } else if (isSafeNumber) {
     v = value.value
   } else if (typeof value === 'string') {
     const regex = new RegExp(`[^-\\d${decimal ?? '.'}]`, 'g')
@@ -90,7 +90,7 @@ function parseAmount(value: number | string | AmountClass, opts: AmountOptions, 
   return useRounding ? round(v) : v
 }
 
-function formatCurrency(currency: AmountClass, settings: Required<AmountOptions>): string {
+function formatCurrency(currency: SafeNumberClass, settings: Required<SafeNumberOptions>): string {
   const { pattern, negativePattern, symbol, separator, decimal } = settings
   const split = (`${currency}`).replace(/^-/, '').split('.')
   const dollars = split[0]
@@ -101,16 +101,16 @@ function formatCurrency(currency: AmountClass, settings: Required<AmountOptions>
     .replace('#', dollars.replace(groupRegex, `$1${separator}`) + (cents ? decimal + cents : ''))
 }
 
-class AmountClass {
+class SafeNumberClass {
   intValue: number
   value: number
-  _settings: Required<AmountOptions>
+  _settings: Required<SafeNumberOptions>
   _precision: number
 
-  constructor(value: number | string | AmountClass, opts?: AmountOptions) {
-    const settings: Required<AmountOptions> = { ...defaults, ...opts }
+  constructor(value: number | string | SafeNumberClass, opts?: SafeNumberOptions) {
+    const settings: Required<SafeNumberOptions> = { ...defaults, ...opts }
     const precision = 10 ** settings.precision
-    const v = parseAmount(value, settings)
+    const v = parseSafeNumber(value, settings)
 
     this.intValue = v
     this.value = v / precision
@@ -118,44 +118,44 @@ class AmountClass {
     this._precision = precision
   }
 
-  add(number: number | string | AmountClass): AmountClass {
+  add(number: number | string | SafeNumberClass): SafeNumberClass {
     const { _settings, _precision, intValue } = this
-    const newIntValue = intValue + parseAmount(number, _settings)
+    const newIntValue = intValue + parseSafeNumber(number, _settings)
     const newValue = newIntValue / (_settings.fromCents ? 1 : _precision)
-    return new AmountClass(newValue, _settings)
+    return new SafeNumberClass(newValue, _settings)
   }
 
-  subtract(number: number | string | AmountClass): AmountClass {
+  subtract(number: number | string | SafeNumberClass): SafeNumberClass {
     const { _settings, _precision, intValue } = this
-    const newIntValue = intValue - parseAmount(number, _settings)
+    const newIntValue = intValue - parseSafeNumber(number, _settings)
     const newValue = newIntValue / (_settings.fromCents ? 1 : _precision)
-    return new AmountClass(newValue, _settings)
+    return new SafeNumberClass(newValue, _settings)
   }
 
-  multiply(number: number): AmountClass {
+  multiply(number: number): SafeNumberClass {
     const { _settings, intValue } = this
     const newIntValue = intValue * number
     const precision = _settings.precision ?? 2
     const newValue = newIntValue / (_settings.fromCents ? 1 : pow(precision))
-    return new AmountClass(newValue, _settings)
+    return new SafeNumberClass(newValue, _settings)
   }
 
-  divide(number: number | string | AmountClass): AmountClass {
+  divide(number: number | string | SafeNumberClass): SafeNumberClass {
     const { _settings, intValue } = this
-    const newIntValue = intValue / parseAmount(number, _settings, false)
-    return new AmountClass(newIntValue, _settings)
+    const newIntValue = intValue / parseSafeNumber(number, _settings, false)
+    return new SafeNumberClass(newIntValue, _settings)
   }
 
-  distribute(count: number): AmountClass[] {
+  distribute(count: number): SafeNumberClass[] {
     const { intValue, _precision, _settings } = this
-    const distribution: AmountClass[] = []
+    const distribution: SafeNumberClass[] = []
     const split = Math[intValue >= 0 ? 'floor' : 'ceil'](intValue / count)
     let pennies = Math.abs(intValue - split * count)
     const precision = _settings.fromCents ? 1 : _precision
     const increment = 1 / precision
 
     for (; count !== 0; count--) {
-      let item = new AmountClass(split / precision, _settings)
+      let item = new SafeNumberClass(split / precision, _settings)
 
       if (pennies-- > 0) {
         item = intValue >= 0 ? item.add(increment) : item.subtract(increment)
@@ -176,7 +176,7 @@ class AmountClass {
     return ~~(intValue % _precision)
   }
 
-  format(options?: AmountOptions | ((value: AmountClass, settings: Required<AmountOptions>) => string)): string {
+  format(options?: SafeNumberOptions | ((value: SafeNumberClass, settings: Required<SafeNumberOptions>) => string)): string {
     const { _settings } = this
 
     if (typeof options === 'function') {
@@ -200,37 +200,68 @@ class AmountClass {
   }
 }
 
+type SafeNumberInput = number | string | SafeNumberClass
+
+const deprecationMessage = (name: string): string =>
+  `[arcdash] \`${name}\` has been deprecated and will be removed in v0.7.0. Use \`SafeNumber\` instead.`
+
 /**
- * 创建一个金额实例
+ * 创建一个 SafeNumber 实例
  *
- * @param value 金额值
+ * @param value 数值
  * @param opts 配置选项
- * @returns 金额实例
+ * @returns SafeNumber 实例
  *
  * @example
- * amount(2.51).add(0.01) // 2.52
+ * SafeNumber(2.51).add(0.01) // 2.52
  */
-function amount(value: number | string | AmountClass, opts?: AmountOptions): AmountClass {
-  return new AmountClass(value, opts)
+function SafeNumber(value: SafeNumberInput, opts?: SafeNumberOptions): SafeNumberClass {
+  return new SafeNumberClass(value, opts)
 }
 
 // 添加静态方法
-amount.add = AmountClass.prototype.add
-amount.subtract = AmountClass.prototype.subtract
-amount.multiply = AmountClass.prototype.multiply
-amount.divide = AmountClass.prototype.divide
-amount.distribute = AmountClass.prototype.distribute
-amount.dollars = AmountClass.prototype.dollars
-amount.cents = AmountClass.prototype.cents
-amount.format = AmountClass.prototype.format
-amount.toString = AmountClass.prototype.toString
-amount.toJSON = AmountClass.prototype.toJSON
+SafeNumber.add = SafeNumberClass.prototype.add
+SafeNumber.subtract = SafeNumberClass.prototype.subtract
+SafeNumber.multiply = SafeNumberClass.prototype.multiply
+SafeNumber.divide = SafeNumberClass.prototype.divide
+SafeNumber.distribute = SafeNumberClass.prototype.distribute
+SafeNumber.dollars = SafeNumberClass.prototype.dollars
+SafeNumber.cents = SafeNumberClass.prototype.cents
+SafeNumber.format = SafeNumberClass.prototype.format
+SafeNumber.toString = SafeNumberClass.prototype.toString
+SafeNumber.toJSON = SafeNumberClass.prototype.toJSON
 
 // 支持 instanceof 检查
-Object.defineProperty(amount, Symbol.hasInstance, {
+Object.defineProperty(SafeNumber, Symbol.hasInstance, {
   value: (instance: unknown): boolean => {
-    return instance instanceof AmountClass
+    return instance instanceof SafeNumberClass
   },
 })
 
-export default amount
+function amount(value: SafeNumberInput, opts?: SafeNumberOptions): SafeNumberClass {
+  console.error(deprecationMessage('amount'))
+  return SafeNumber(value, opts)
+}
+
+function Amout(value: SafeNumberInput, opts?: SafeNumberOptions): SafeNumberClass {
+  console.error(deprecationMessage('Amout'))
+  return SafeNumber(value, opts)
+}
+
+Object.assign(amount, SafeNumber)
+Object.assign(Amout, SafeNumber)
+
+Object.defineProperty(amount, Symbol.hasInstance, {
+  value: (instance: unknown): boolean => {
+    return instance instanceof SafeNumberClass
+  },
+})
+
+Object.defineProperty(Amout, Symbol.hasInstance, {
+  value: (instance: unknown): boolean => {
+    return instance instanceof SafeNumberClass
+  },
+})
+
+export { Amout, amount }
+export default SafeNumber

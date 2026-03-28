@@ -1,6 +1,6 @@
 # 配置选项
 
-`amount` 函数和 `format` 方法都支持以下配置选项：
+`SafeNumber` 函数和 `format` 方法都支持以下配置选项：
 
 ## 选项列表
 
@@ -21,8 +21,8 @@
 货币符号，出现在金额前后取决于 `pattern` 的设置。
 
 ```ts
-amount(100).format() // "¥100.00"
-amount(100).format({ symbol: '$' }) // "$100.00"
+SafeNumber(100).format() // "¥100.00"
+SafeNumber(100).format({ symbol: '$' }) // "$100.00"
 ```
 
 ## separator
@@ -30,8 +30,8 @@ amount(100).format({ symbol: '$' }) // "$100.00"
 千位分隔符，用于美化大数字。
 
 ```ts
-amount(1234567).format() // "¥1,234,567.00"
-amount(1234567).format({ separator: ' ' }) // "¥1 234 567.00"
+SafeNumber(1234567).format() // "¥1,234,567.00"
+SafeNumber(1234567).format({ separator: ' ' }) // "¥1 234 567.00"
 ```
 
 ## decimal
@@ -39,8 +39,8 @@ amount(1234567).format({ separator: ' ' }) // "¥1 234 567.00"
 小数点字符。
 
 ```ts
-amount(12.34).format() // "¥12.34"
-amount(12.34).format({ decimal: ',' }) // "¥12,34"
+SafeNumber(12.34).format() // "¥12.34"
+SafeNumber(12.34).format({ decimal: ',' }) // "¥12,34"
 ```
 
 ## errorOnInvalid
@@ -49,11 +49,11 @@ amount(12.34).format({ decimal: ',' }) // "¥12,34"
 
 ```ts
 // 默认不报错
-amount(null).valueOf() // 0
-amount(undefined).valueOf() // 0
+SafeNumber(null).valueOf() // 0
+SafeNumber(undefined).valueOf() // 0
 
 // 报错
-amount(null, { errorOnInvalid: true }) // Error: Invalid Input
+SafeNumber(null, { errorOnInvalid: true }) // Error: Invalid Input
 ```
 
 ## precision
@@ -61,9 +61,9 @@ amount(null, { errorOnInvalid: true }) // Error: Invalid Input
 精度，即小数位数。
 
 ```ts
-amount(12.345).format() // "¥12.35"（默认精度 2）
-amount(12.345).format({ precision: 3 }) // "¥12.345"
-amount(12.345).format({ precision: 0 }) // "¥12"
+SafeNumber(12.345).format() // "¥12.35"（默认精度 2）
+SafeNumber(12.345).format({ precision: 3 }) // "¥12.345"
+SafeNumber(12.345).format({ precision: 0 }) // "¥12"
 ```
 
 ## pattern 和 negativePattern
@@ -72,12 +72,12 @@ amount(12.345).format({ precision: 0 }) // "¥12"
 
 ```ts
 // 默认格式
-amount(100).format() // "¥100.00"
-amount(-100).format() // "-¥100.00"
+SafeNumber(100).format() // "¥100.00"
+SafeNumber(-100).format() // "-¥100.00"
 
 // 自定义模板
-amount(100).format({ pattern: '# !' }) // "100.00 ¥"
-amount(-100).format({ negativePattern: '(#) !' }) // "(100.00) ¥"
+SafeNumber(100).format({ pattern: '# !' }) // "100.00 ¥"
+SafeNumber(-100).format({ negativePattern: '(#) !' }) // "(100.00) ¥"
 ```
 
 ## fromCents
@@ -85,7 +85,7 @@ amount(-100).format({ negativePattern: '(#) !' }) // "(100.00) ¥"
 是否以分为单位进行运算。
 
 ```ts
-amount(10000, { fromCents: true }).format() // "¥100.00"
+SafeNumber(10000, { fromCents: true }).format() // "¥100.00"
 ```
 
 ## increment
@@ -93,7 +93,7 @@ amount(10000, { fromCents: true }).format() // "¥100.00"
 四舍五入的增量。
 
 ```ts
-amount(1.555).format({ increment: 0.01 }) // "¥1.56"
-amount(1.555).format({ increment: 0.1 }) // "¥1.6"
-amount(1.555).format({ increment: null }) // "¥1.55"（禁用四舍五入）
+SafeNumber(1.555).format({ increment: 0.01 }) // "¥1.56"
+SafeNumber(1.555).format({ increment: 0.1 }) // "¥1.6"
+SafeNumber(1.555).format({ increment: null }) // "¥1.55"（禁用四舍五入）
 ```

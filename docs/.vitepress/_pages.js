@@ -7,16 +7,6 @@
  */
 const pages = [
   {
-    "text": "",
-    "items": [
-      {
-        "text": "amount",
-        "link": "/api/amount"
-      }
-    ],
-    "dir": "amount"
-  },
-  {
     "text": "Array",
     "items": [
       {
@@ -185,6 +175,16 @@ const pages = [
       }
     ],
     "dir": "number"
+  },
+  {
+    "text": "",
+    "items": [
+      {
+        "text": "SafeNumber",
+        "link": "/api/SafeNumber"
+      }
+    ],
+    "dir": "safe-number"
   },
   {
     "text": "Time",

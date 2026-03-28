@@ -13,35 +13,35 @@
 ## 基本用法
 
 ```ts
-import { amount } from 'arcdash'
+import { SafeNumber } from 'arcdash'
 
 // 创建 100 元（10000 分）
-amount(10000, { fromCents: true }) // 金额实例
+SafeNumber(10000, { fromCents: true }) // 金额实例
 
 // 运算
-amount(10000, { fromCents: true })
+SafeNumber(10000, { fromCents: true })
   .add(500, { fromCents: true })
   .valueOf() // 10500 分
 
 // 格式化时自动转换为元
-amount(10000, { fromCents: true }).format() // "¥100.00"
-amount(10500, { fromCents: true }).format() // "¥105.00"
+SafeNumber(10000, { fromCents: true }).format() // "¥100.00"
+SafeNumber(10500, { fromCents: true }).format() // "¥105.00"
 ```
 
 ## 混合使用
 
-如果操作数单位不一致，`amount` 会自动处理：
+如果操作数单位不一致，`SafeNumber` 会自动处理：
 
 ```ts
-import { amount } from 'arcdash'
+import { SafeNumber } from 'arcdash'
 
 // 分 + 元
-amount(10000, { fromCents: true })
+SafeNumber(10000, { fromCents: true })
   .add(5) // 5 元
   .valueOf() // 10500（分）
 
 // 分 + 字符串
-amount(10000, { fromCents: true })
+SafeNumber(10000, { fromCents: true })
   .add('5.50') // 5.50 元
   .valueOf() // 10550（分）
 ```
@@ -49,9 +49,9 @@ amount(10000, { fromCents: true })
 ## 获取金额部分
 
 ```ts
-import { amount } from 'arcdash'
+import { SafeNumber } from 'arcdash'
 
-const price = amount(1234.56)
+const price = SafeNumber(1234.56)
 
 // 获取整数部分（元）
 price.dollars() // 1234
@@ -60,7 +60,7 @@ price.dollars() // 1234
 price.cents() // 56
 
 // 对于以分存储的金额
-const cents = amount(123456, { fromCents: true })
+const cents = SafeNumber(123456, { fromCents: true })
 cents.dollars() // 1234
 cents.cents() // 56
 ```
@@ -70,13 +70,13 @@ cents.cents() // 56
 ### 订单金额计算
 
 ```ts
-import { amount } from 'arcdash'
+import { SafeNumber } from 'arcdash'
 
 // 商品价格（分）
-const price = amount(9999, { fromCents: true }) // 99.99 元
+const price = SafeNumber(9999, { fromCents: true }) // 99.99 元
 
 // 运费（分）
-const shipping = amount(500, { fromCents: true }) // 5.00 元
+const shipping = SafeNumber(500, { fromCents: true }) // 5.00 元
 
 // 总价
 const total = price.add(shipping).format() // "¥104.99"
@@ -85,10 +85,10 @@ const total = price.add(shipping).format() // "¥104.99"
 ### 折扣计算
 
 ```ts
-import { amount } from 'arcdash'
+import { SafeNumber } from 'arcdash'
 
 // 原价 100 元
-const original = amount(10000, { fromCents: true })
+const original = SafeNumber(10000, { fromCents: true })
 
 // 9 折
 const discount = original.multiply(0.9)
@@ -99,10 +99,10 @@ discount.format() // "¥90.00"
 ### 分摊金额
 
 ```ts
-import { amount } from 'arcdash'
+import { SafeNumber } from 'arcdash'
 
 // 总费用 100 元，分给 3 个人
-const total = amount(10000, { fromCents: true })
+const total = SafeNumber(10000, { fromCents: true })
 const share = total.distribute(3)
 
 share[0].format() // "¥3.33"

@@ -1,5 +1,6 @@
 import { getRecords } from 'func2md'
 import { defineConfig } from 'vitepress'
+import llmstxt, { copyOrDownloadAsMarkdownButtons } from 'vitepress-plugin-llms'
 
 const pages = getRecords()
 
@@ -9,6 +10,14 @@ export default defineConfig({
   description:
     'Modern JS/TS tool library',
   lastUpdated: true,
+  vite: {
+    plugins: [llmstxt({ domain: 'https://arcdash.azir-11.com' })],
+  },
+  markdown: {
+    config(md) {
+      md.use(copyOrDownloadAsMarkdownButtons)
+    },
+  },
   head: [
     ['meta', { name: 'author', content: 'Azir-11' }],
     [

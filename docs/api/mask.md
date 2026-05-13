@@ -20,12 +20,11 @@
 ```ts
 import { mask } from 'arcdash'
 
-mask('13812345678')                                          // '13*******78'
-mask('13812345678', { position: 'front', suffixLen: 4 })    // '*******5678'
-mask('13812345678', { position: 'back', prefixLen: 4 })     // '1381*******'
-mask('13812345678', { prefixLen: 3, suffixLen: 4 })         // '138****5678'
-mask('张三', { minMaskLen: 3 })                              // '**'
-mask('张三', { minMaskLen: 3, minVisibleLen: 0 })            // '**'
-mask(12345678)                                              // '12****78'
+mask('13812345678') // '13*******78'
+mask('13812345678', { position: 'front', suffixLen: 4 }) // '*******5678'
+mask('13812345678', { position: 'back', prefixLen: 4 }) // '1381*******'
+mask('13812345678', { prefixLen: 3, suffixLen: 4 }) // '138****5678'
+mask('张三', { minMaskLen: 3 }) // '**'
+mask('张三', { minMaskLen: 3, minVisibleLen: 0 }) // '**'
+mask(12345678) // '12****78'
 ```
-

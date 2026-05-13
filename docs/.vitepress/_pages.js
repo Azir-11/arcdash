@@ -177,7 +177,7 @@ const pages = [
     "dir": "number"
   },
   {
-    "text": "",
+    "text": "SafeNumber",
     "items": [
       {
         "text": "SafeNumber",
@@ -185,6 +185,16 @@ const pages = [
       }
     ],
     "dir": "safe-number"
+  },
+  {
+    "text": "String",
+    "items": [
+      {
+        "text": "mask",
+        "link": "/api/mask"
+      }
+    ],
+    "dir": "string"
   },
   {
     "text": "Time",

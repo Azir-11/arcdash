@@ -1,10 +1,10 @@
-export type Unit = 'B' | 'KB' | 'MB' | 'GB' | 'TB' | 'PB' | 'EB' | 'ZB' | 'YB'
+export type Unit = "B" | "KB" | "MB" | "GB" | "TB" | "PB" | "EB" | "ZB" | "YB";
 
-const unitArr: Unit[] = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']
+const unitArr: Unit[] = ["B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
 
-const BYTES_IN_KILOBYTE = 1024
+const BYTES_IN_KILOBYTE = 1024;
 
-const DEFAULT_PRECISION = 2
+const DEFAULT_PRECISION = 2;
 
 /**
  * 核心计算实现
@@ -20,19 +20,16 @@ const DEFAULT_PRECISION = 2
  * @throws 如果输入的单位无效，则抛出错误
  */
 function calculateSize(size: number, fromUnit: Unit, toUnit: Unit): number {
-  if (Number.isNaN(size))
-    throw new Error('Invalid size: NaN')
+  if (Number.isNaN(size)) throw new Error("Invalid size: NaN");
 
-  const fromIndex = unitArr.indexOf(fromUnit)
-  const toIndex = unitArr.indexOf(toUnit)
+  const fromIndex = unitArr.indexOf(fromUnit);
+  const toIndex = unitArr.indexOf(toUnit);
 
-  if (fromIndex === -1)
-    throw new Error(`Invalid fromUnit: ${fromUnit}`)
+  if (fromIndex === -1) throw new Error(`Invalid fromUnit: ${fromUnit}`);
 
-  if (toIndex === -1)
-    throw new Error(`Invalid toUnit: ${toUnit}`)
+  if (toIndex === -1) throw new Error(`Invalid toUnit: ${toUnit}`);
 
-  return size * BYTES_IN_KILOBYTE ** (fromIndex - toIndex)
+  return size * BYTES_IN_KILOBYTE ** (fromIndex - toIndex);
 }
 
 /**
@@ -46,7 +43,7 @@ function calculateSize(size: number, fromUnit: Unit, toUnit: Unit): number {
  * @returns 格式化后的字符串
  */
 function formatSize(size: number, unit: Unit, precision: number = DEFAULT_PRECISION): string {
-  return `${size.toFixed(precision)} ${unit}`
+  return `${size.toFixed(precision)} ${unit}`;
 }
 
 /**
@@ -66,9 +63,14 @@ function formatSize(size: number, unit: Unit, precision: number = DEFAULT_PRECIS
  * convertBytes(1024, 'B', 'KB') // '1.00 KB'
  * convertBytes(1048576, 'B', 'MB') // '1.00 MB'
  */
-export function convertBytes(size: number, fromUnit: Unit, toUnit: Unit, precision: number = DEFAULT_PRECISION): string {
-  const result = calculateSize(size, fromUnit, toUnit)
-  return formatSize(result, toUnit, precision)
+export function convertBytes(
+  size: number,
+  fromUnit: Unit,
+  toUnit: Unit,
+  precision: number = DEFAULT_PRECISION,
+): string {
+  const result = calculateSize(size, fromUnit, toUnit);
+  return formatSize(result, toUnit, precision);
 }
 
 /**
@@ -87,9 +89,13 @@ export function convertBytes(size: number, fromUnit: Unit, toUnit: Unit, precisi
  * convertBytesTo(1024, 'KB') // '1.00 KB'
  * convertBytesTo(1048576, 'MB') // '1.00 MB'
  */
-export function convertBytesTo(size: number, unit: Unit = 'B', precision: number = DEFAULT_PRECISION): string {
-  const result = calculateSize(size, 'B', unit)
-  return formatSize(result, unit, precision)
+export function convertBytesTo(
+  size: number,
+  unit: Unit = "B",
+  precision: number = DEFAULT_PRECISION,
+): string {
+  const result = calculateSize(size, "B", unit);
+  return formatSize(result, unit, precision);
 }
 
 /**
@@ -109,14 +115,12 @@ export function convertBytesTo(size: number, unit: Unit = 'B', precision: number
  * autoConvertBytes(1073741824) // '1.00 GB'
  */
 export function autoConvertBytes(size: number, precision: number = DEFAULT_PRECISION): string {
-  if (Number.isNaN(size))
-    throw new Error('Invalid size: NaN')
+  if (Number.isNaN(size)) throw new Error("Invalid size: NaN");
 
-  if (size === 0)
-    return '0 B'
+  if (size === 0) return "0 B";
 
-  const index = Math.floor(Math.log(size) / Math.log(BYTES_IN_KILOBYTE))
-  const result = calculateSize(size, 'B', unitArr[index])
+  const index = Math.floor(Math.log(size) / Math.log(BYTES_IN_KILOBYTE));
+  const result = calculateSize(size, "B", unitArr[index]);
 
-  return formatSize(result, unitArr[index], precision)
+  return formatSize(result, unitArr[index], precision);
 }

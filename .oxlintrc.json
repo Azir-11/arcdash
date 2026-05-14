@@ -1,0 +1,6 @@
+{
+  "ignorePatterns": ["docs/.vitepress/cache", "dist", "cdn", "node_modules"],
+  "rules": {
+    "typescript/no-explicit-any": "warn"
+  }
+}

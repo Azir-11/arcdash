@@ -15,5 +15,5 @@
  * isBoolean(1) // false
  */
 export function isBoolean(value: unknown) {
-  return typeof value === 'boolean'
+  return typeof value === "boolean";
 }

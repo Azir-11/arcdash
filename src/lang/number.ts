@@ -16,10 +16,9 @@
  */
 export function isNumber(value: unknown): value is number {
   try {
-    return Number(value) === value
-  }
-  catch {
-    return false
+    return Number(value) === value;
+  } catch {
+    return false;
   }
 }
 
@@ -40,7 +39,7 @@ export function isNumber(value: unknown): value is number {
  * isInt('1.5') // false
  */
 export function isInt(value: any): value is number {
-  return isNumber(value) && value % 1 === 0
+  return isNumber(value) && value % 1 === 0;
 }
 
 /**
@@ -60,7 +59,7 @@ export function isInt(value: any): value is number {
  * isFloat('1') // false
  */
 export function isFloat(value: any): value is number {
-  return isNumber(value) && value % 1 !== 0
+  return isNumber(value) && value % 1 !== 0;
 }
 
 /**
@@ -79,7 +78,7 @@ export function isFloat(value: any): value is number {
  * isNegative(0) // false
  */
 export function isNegative(value: unknown): boolean {
-  return isNumber(value) && value < 0
+  return isNumber(value) && value < 0;
 }
 
 /**
@@ -98,7 +97,7 @@ export function isNegative(value: unknown): boolean {
  * isPositive(0) // false
  */
 export function isPositive(value: unknown): boolean {
-  return isNumber(value) && value > 0
+  return isNumber(value) && value > 0;
 }
 
 /**
@@ -118,7 +117,7 @@ export function isPositive(value: unknown): boolean {
  * max(15, 10) // false
  */
 export function max(num: unknown, max: number): boolean {
-  return isNumber(num) && isNumber(max) && num <= max
+  return isNumber(num) && isNumber(max) && num <= max;
 }
 
 /**
@@ -138,5 +137,5 @@ export function max(num: unknown, max: number): boolean {
  * min(3, 5) // false
  */
 export function min(num: unknown, min: number): boolean {
-  return isNumber(num) && isNumber(min) && num >= min
+  return isNumber(num) && isNumber(min) && num >= min;
 }

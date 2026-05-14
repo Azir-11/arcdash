@@ -15,7 +15,7 @@
  * isObject(null) // false
  */
 export function isObject(value: any): value is object {
-  return !!value && value.constructor === Object
+  return !!value && value.constructor === Object;
 }
 
 /**
@@ -34,10 +34,10 @@ export function isObject(value: any): value is object {
  * isSymbol(1) // false
  */
 export function isSymbol(value: any): value is symbol {
-  return !!value && value.constructor === Symbol
+  return !!value && value.constructor === Symbol;
 }
 
-type AnyFunction = (...args: any[]) => any
+type AnyFunction = (...args: any[]) => any;
 
 /**
  * 检查值是否为函数
@@ -55,7 +55,7 @@ type AnyFunction = (...args: any[]) => any
  * isFunction(1) // false
  */
 export function isFunction(value: any): value is AnyFunction {
-  return !!(value && value.constructor && value.call && value.apply)
+  return !!(value && value.constructor && value.call && value.apply);
 }
 
 /**
@@ -74,7 +74,7 @@ export function isFunction(value: any): value is AnyFunction {
  * isDate(Date.now()) // false
  */
 export function isDate(value: any): value is Date {
-  return Object.prototype.toString.call(value) === '[object Date]'
+  return Object.prototype.toString.call(value) === "[object Date]";
 }
 
 /**
@@ -94,9 +94,7 @@ export function isDate(value: any): value is Date {
  * isPromise(1) // false
  */
 export function isPromise(value: any): value is Promise<any> {
-  if (!value)
-    return false
-  if (!value.then)
-    return false
-  return isFunction(value.then)
+  if (!value) return false;
+  if (!value.then) return false;
+  return isFunction(value.then);
 }

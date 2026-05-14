@@ -16,17 +16,15 @@
  * map([1, 2, 3, 4, 5], n => n > 2 ? n : undefined) // [undefined, undefined, 3, 4, 5]
  */
 export function map<T, U>(array: T[], fn: (value: T, index: number, array: T[]) => U): U[] {
-  if (array.length === 0 && !array)
-    return []
+  if (array.length === 0 && !array) return [];
 
-  const resultArray: U[] = []
+  const resultArray: U[] = [];
 
   array.forEach((item, index, array) => {
-    const result = fn(item, index, array)
+    const result = fn(item, index, array);
 
-    if (typeof result !== 'undefined')
-      resultArray.push(result)
-  })
+    if (typeof result !== "undefined") resultArray.push(result);
+  });
 
-  return resultArray
+  return resultArray;
 }

@@ -1,9 +1,9 @@
 export interface MaskOptions {
-  prefixLen?: number
-  suffixLen?: number
-  minMaskLen?: number
-  minVisibleLen?: number
-  position?: 'front' | 'middle' | 'back'
+  prefixLen?: number;
+  suffixLen?: number;
+  minMaskLen?: number;
+  minVisibleLen?: number;
+  position?: "front" | "middle" | "back";
 }
 
 /**
@@ -35,65 +35,59 @@ export interface MaskOptions {
  * mask(12345678)                                              // '12****78'
  */
 export function mask(value: string | number, options?: MaskOptions): string {
-  const str = String(value)
-  const len = str.length
+  const str = String(value);
+  const len = str.length;
 
-  if (len === 0)
-    return str
+  if (len === 0) return str;
 
   const {
     prefixLen = 2,
     suffixLen = 2,
     minMaskLen = 1,
     minVisibleLen = 1,
-    position = 'middle',
-  } = options ?? {}
+    position = "middle",
+  } = options ?? {};
 
-  if (len === 1)
-    return minMaskLen > 0 ? '*'.repeat(minMaskLen) : str
+  if (len === 1) return minMaskLen > 0 ? "*".repeat(minMaskLen) : str;
 
   // 根据 position 计算初始明文保留长度
-  let p = position !== 'front' ? prefixLen : 0
-  let s = position !== 'back' ? suffixLen : 0
+  let p = position !== "front" ? prefixLen : 0;
+  let s = position !== "back" ? suffixLen : 0;
 
   // 约束一（最高优先级）：为密文保留至少 minMaskLen 位，即 p + s ≤ len - minMaskLen
-  const maxVisible = Math.max(len - minMaskLen, 0)
+  const maxVisible = Math.max(len - minMaskLen, 0);
   if (p + s > maxVisible) {
-    if (position === 'front') {
-      s = maxVisible
-    }
-    else if (position === 'back') {
-      p = maxVisible
-    }
-    else {
+    if (position === "front") {
+      s = maxVisible;
+    } else if (position === "back") {
+      p = maxVisible;
+    } else {
       // 均衡削减两侧，超出部分由 p 兜底
-      const excess = p + s - maxVisible
-      const fromP = Math.min(p, Math.ceil(excess / 2))
-      p -= fromP
-      const fromS = Math.min(s, excess - fromP)
-      s -= fromS
-      p -= excess - fromP - fromS
+      const excess = p + s - maxVisible;
+      const fromP = Math.min(p, Math.ceil(excess / 2));
+      p -= fromP;
+      const fromS = Math.min(s, excess - fromP);
+      s -= fromS;
+      p -= excess - fromP - fromS;
     }
   }
 
   // 约束二（软约束）：明文至少保留 minVisibleLen 位，受约束一上限制约
-  const effectiveMinVisible = Math.min(minVisibleLen, maxVisible)
+  const effectiveMinVisible = Math.min(minVisibleLen, maxVisible);
   if (p + s < effectiveMinVisible) {
-    const deficit = effectiveMinVisible - p - s
-    if (position === 'back') {
-      p += deficit
-    }
-    else if (position === 'front') {
-      s += deficit
-    }
-    else {
+    const deficit = effectiveMinVisible - p - s;
+    if (position === "back") {
+      p += deficit;
+    } else if (position === "front") {
+      s += deficit;
+    } else {
       // 均衡补充两侧，剩余给 s
-      const addToP = Math.min(p, Math.ceil(deficit / 2))
-      p += addToP
-      s = effectiveMinVisible - p
+      const addToP = Math.min(p, Math.ceil(deficit / 2));
+      p += addToP;
+      s = effectiveMinVisible - p;
     }
   }
 
-  const maskLen = len - p - s
-  return str.slice(0, p) + '*'.repeat(maskLen) + str.slice(len - s)
+  const maskLen = len - p - s;
+  return str.slice(0, p) + "*".repeat(maskLen) + str.slice(len - s);
 }

@@ -1,4 +1,4 @@
-export const isArray = Array.isArray
+export const isArray = Array.isArray;
 
 /**
  * 检查给定的数组是否为空。
@@ -17,7 +17,7 @@ export const isArray = Array.isArray
  * arrayNotEmpty(null) // false
  */
 export function arrayNotEmpty(array: unknown): boolean {
-  return isArray(array) && array.length > 0
+  return isArray(array) && array.length > 0;
 }
 
 /**
@@ -37,9 +37,8 @@ export function arrayNotEmpty(array: unknown): boolean {
  * arrayNotContains([1, 2, 3], [2, 4]) // false
  */
 export function arrayNotContains(array: unknown, values: any[]): boolean {
-  if (!isArray(array))
-    return false
-  return values.every(value => !array.includes(value))
+  if (!isArray(array)) return false;
+  return values.every((value) => !array.includes(value));
 }
 
 /**
@@ -59,12 +58,11 @@ export function arrayNotContains(array: unknown, values: any[]): boolean {
  * arrayContains([1, 2, 3], [1, 4]) // false
  */
 export function arrayContains(array: unknown, values: any[]): boolean {
-  if (!isArray(array))
-    return false
-  return values.every(value => array.includes(value))
+  if (!isArray(array)) return false;
+  return values.every((value) => array.includes(value));
 }
 
-type ArrayUniqueIdentifier<T = any> = (o: T) => any
+type ArrayUniqueIdentifier<T = any> = (o: T) => any;
 /**
  * 检查所有数组的值是否唯一。
  * 对象的比较是基于引用的。
@@ -83,16 +81,11 @@ type ArrayUniqueIdentifier<T = any> = (o: T) => any
  * arrayUnique([1, 2, 2]) // false
  * arrayUnique([{ id: 1 }, { id: 2 }], item => item.id) // true
  */
-export function arrayUnique(
-  array: unknown[],
-  identifier?: ArrayUniqueIdentifier,
-): boolean {
-  if (!Array.isArray(array))
-    return false
+export function arrayUnique(array: unknown[], identifier?: ArrayUniqueIdentifier): boolean {
+  if (!Array.isArray(array)) return false;
 
-  if (identifier)
-    array = array.map(o => (o != null ? identifier(o) : o))
+  if (identifier) array = array.map((o) => (o != null ? identifier(o) : o));
 
-  const uniqueItems = array.filter((a, b, c) => c.indexOf(a) === b)
-  return array.length === uniqueItems.length
+  const uniqueItems = array.filter((a, b, c) => c.indexOf(a) === b);
+  return array.length === uniqueItems.length;
 }

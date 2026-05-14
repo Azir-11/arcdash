@@ -17,18 +17,17 @@
  */
 export function formatArrayToString<T = string | number>(
   values: readonly T[],
-  options: { separator?: string, fn?: (item: T) => string | number } = {},
+  options: { separator?: string; fn?: (item: T) => string | number } = {},
 ): string {
-  const { separator = '', fn } = options
+  const { separator = "", fn } = options;
 
-  if (values.length === 0)
-    return ''
+  if (values.length === 0) return "";
 
   // 使用 filter 过滤掉 undefined 和 null 的值
   const filteredValues = values
-    .map(value => (fn ? fn(value) : value))
-    .filter(value => value !== null && value !== undefined)
+    .map((value) => (fn ? fn(value) : value))
+    .filter((value) => value !== null && value !== undefined);
 
   // 使用 join 方法将数组连接为字符串
-  return filteredValues.join(separator)
+  return filteredValues.join(separator);
 }

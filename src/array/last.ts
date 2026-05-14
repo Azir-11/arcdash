@@ -15,5 +15,5 @@
  * last([]) // undefined
  */
 export function last<T>(array: T[]): T | undefined {
-  return array.length > 0 ? array[array.length - 1] : undefined
+  return array.length > 0 ? array[array.length - 1] : undefined;
 }

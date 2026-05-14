@@ -16,15 +16,15 @@
  * convertToBase26(27) // 'AA'
  */
 export function convertToBase26(decimalNumber: number | string): string {
-  decimalNumber = Number(decimalNumber)
-  const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-  let result = ''
+  decimalNumber = Number(decimalNumber);
+  const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  let result = "";
 
   while (decimalNumber > 0) {
-    const remainder = decimalNumber % 26
-    result = alphabet[remainder - 1] + result
-    decimalNumber = Math.floor(decimalNumber / 26)
+    const remainder = decimalNumber % 26;
+    result = alphabet[remainder - 1] + result;
+    decimalNumber = Math.floor(decimalNumber / 26);
   }
 
-  return result || '0' // 如果传入的数字为0，则返回'0'
+  return result || "0"; // 如果传入的数字为0，则返回'0'
 }

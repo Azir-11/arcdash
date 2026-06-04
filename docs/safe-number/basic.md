@@ -49,8 +49,8 @@ import { SafeNumber } from 'arcdash'
 
 const price = SafeNumber(12.34)
 
-// 转换为数字
-price.valueOf() // 12.34
+// 读取数值
+price.value // 12.34
 price.toJSON() // 12.34
 
 // 转换为字符串

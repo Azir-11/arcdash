@@ -49,8 +49,8 @@ SafeNumber(12.34).format({ decimal: ',' }) // "¥12,34"
 
 ```ts
 // 默认不报错
-SafeNumber(null).valueOf() // 0
-SafeNumber(undefined).valueOf() // 0
+SafeNumber(null).value // 0
+SafeNumber(undefined).value // 0
 
 // 报错
 SafeNumber(null, { errorOnInvalid: true }) // Error: Invalid Input

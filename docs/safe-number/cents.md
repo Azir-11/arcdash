@@ -18,32 +18,32 @@ import { SafeNumber } from 'arcdash'
 // 创建 100 元（10000 分）
 SafeNumber(10000, { fromCents: true }) // 金额实例
 
-// 运算
+// 运算（操作数同样以分为单位）
 SafeNumber(10000, { fromCents: true })
-  .add(500, { fromCents: true })
-  .valueOf() // 10500 分
+  .add(500)
+  .intValue // 10500（分）
 
 // 格式化时自动转换为元
 SafeNumber(10000, { fromCents: true }).format() // "¥100.00"
 SafeNumber(10500, { fromCents: true }).format() // "¥105.00"
 ```
 
-## 混合使用
+## 运算单位一致
 
-如果操作数单位不一致，`SafeNumber` 会自动处理：
+在 `fromCents` 模式下，参与运算的操作数同样以「分」为单位。用 `intValue` 读取分值、用 `format()` 显示为元：
 
 ```ts
 import { SafeNumber } from 'arcdash'
 
-// 分 + 元
+// 100 元（10000 分）+ 5 分
 SafeNumber(10000, { fromCents: true })
-  .add(5) // 5 元
-  .valueOf() // 10500（分）
+  .add(5) // 5 分
+  .intValue // 10005（分）
 
-// 分 + 字符串
+// 100 元（10000 分）+ 550 分（即 5.50 元）
 SafeNumber(10000, { fromCents: true })
-  .add('5.50') // 5.50 元
-  .valueOf() // 10550（分）
+  .add(550) // 550 分
+  .intValue // 10550（分）
 ```
 
 ## 获取金额部分
@@ -92,7 +92,7 @@ const original = SafeNumber(10000, { fromCents: true })
 
 // 9 折
 const discount = original.multiply(0.9)
-discount.valueOf() // 9000 分
+discount.intValue // 9000（分）
 discount.format() // "¥90.00"
 ```
 

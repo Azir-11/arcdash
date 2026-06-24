@@ -1,4 +1,5 @@
 export { formatArrayToString, head, last, map, mergeArraysByKeyValue, sum } from "./array/index";
+export { clone, fullClone, jsonClone, liteClone } from "./clone/index";
 export { arrayContains, arrayNotContains, arrayNotEmpty, arrayUnique, isArray } from "./lang/array";
 export { isBoolean } from "./lang/boolean";
 export {

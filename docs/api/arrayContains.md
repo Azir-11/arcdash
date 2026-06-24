@@ -2,7 +2,7 @@
 
 ## 说明
 
-检查array是否包含给定值数组中的所有值。 如果给定null或undefined，则此函数返回false。
+检查array是否包含给定值数组中的所有值。如果给定null或undefined，则此函数返回false。
 
 ## 返回值
 

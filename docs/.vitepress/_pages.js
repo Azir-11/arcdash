@@ -1,3 +1,4 @@
+/* eslint-disable eslint-comments/no-unlimited-disable */
 // @ts-nocheck
 /* eslint-disable */
 /* prettier-ignore-start */
@@ -35,6 +36,28 @@ const pages = [
       }
     ],
     "dir": "array"
+  },
+  {
+    "text": "Clone",
+    "items": [
+      {
+        "text": "clone",
+        "link": "/api/clone"
+      },
+      {
+        "text": "fullClone",
+        "link": "/api/fullClone"
+      },
+      {
+        "text": "jsonClone",
+        "link": "/api/jsonClone"
+      },
+      {
+        "text": "liteClone",
+        "link": "/api/liteClone"
+      }
+    ],
+    "dir": "clone"
   },
   {
     "text": "Lang",

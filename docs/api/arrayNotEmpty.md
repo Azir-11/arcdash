@@ -2,7 +2,7 @@
 
 ## 说明
 
-检查给定的数组是否为空。 如果给定null或undefined，则此函数返回false。
+检查给定的数组是否为空。如果给定null或undefined，则此函数返回false。
 
 ## 返回值
 

@@ -2,7 +2,7 @@
 
 ## 说明
 
-检查数组是否不包含任何给定的值。 如果给定null或undefined，则此函数返回false。
+检查数组是否不包含任何给定的值。如果给定null或undefined，则此函数返回false。
 
 ## 返回值
 

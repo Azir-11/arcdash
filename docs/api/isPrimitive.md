@@ -2,7 +2,9 @@
 
 ## 说明
 
-检查给定的值是否为原始类型. 原始类型: number , string , boolean , symbol, bigint, undefined, null
+检查给定的值是否为原始类型.
+
+原始类型: number , string , boolean , symbol, bigint, undefined, null
 
 ## 返回值
 

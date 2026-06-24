@@ -60,6 +60,28 @@ const pages = [
     "dir": "clone"
   },
   {
+    "text": "Defu",
+    "items": [
+      {
+        "text": "createDefu",
+        "link": "/api/createDefu"
+      },
+      {
+        "text": "defu",
+        "link": "/api/defu"
+      },
+      {
+        "text": "defuArrayFn",
+        "link": "/api/defuArrayFn"
+      },
+      {
+        "text": "defuFn",
+        "link": "/api/defuFn"
+      }
+    ],
+    "dir": "defu"
+  },
+  {
     "text": "Lang",
     "items": [
       {

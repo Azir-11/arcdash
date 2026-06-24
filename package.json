@@ -64,6 +64,7 @@
     "vitest": "^4.1.6"
   },
   "dependencies": {
+    "defu": "6.1.7",
     "klona": "2.0.6"
   }
 }

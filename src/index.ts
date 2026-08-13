@@ -1,5 +1,5 @@
 export { formatArrayToString, head, last, map, mergeArraysByKeyValue, sum } from "./array/index";
-export { clone, fullClone, jsonClone, liteClone } from "./clone/index";
+export { clone, deepClone, fullClone, jsonClone, liteClone } from "./clone/index";
 export { createDefu, defu, defuArrayFn, defuFn } from "./defu/index";
 export type { Defu, DefuFn, Merger } from "./defu/index";
 export { arrayContains, arrayNotContains, arrayNotEmpty, arrayUnique, isArray } from "./lang/array";

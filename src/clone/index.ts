@@ -103,3 +103,25 @@ export function clone<T>(input: T): T {
 export function fullClone<T>(input: T): T {
   return fullKlona(input);
 }
+
+/**
+ * 深拷贝数据，支持对象、数组、Map、Set、Date、RegExp 及 TypedArray 等常见类型。/n
+ *
+ * 此函数是 `clone` 的别名，行为完全一致。深拷贝会递归遍历源数据，
+ * 复制实际的值而非引用，因此修改副本不会影响源对象。
+ *
+ * @title deepClone
+ *
+ * @param {T} input - 需要深拷贝的源数据。
+ * @returns {T} 与源数据深度相等的独立副本。
+ *
+ * @example
+ * import { deepClone } from 'arcdash'
+ *
+ * const input = { a: [1, 2], b: new Date() }
+ * const output = deepClone(input)
+ *
+ * output.a.push(3)
+ * input.a.length // 2（源数组不受影响）
+ */
+export const deepClone = clone;
